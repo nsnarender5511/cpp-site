@@ -2,7 +2,7 @@ import React, { useRef, useState, type ReactElement } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
-import { FiArrowRight, FiCode, FiCpu, FiDatabase, FiServer, FiShuffle, FiZap } from 'react-icons/fi';
+import { FiArrowRight, FiCode, FiCpu, FiDatabase, FiServer, FiShuffle, FiZap, FiPieChart, FiAlertCircle, FiPlay, FiBook, FiEye, FiGitCommit } from 'react-icons/fi';
 
 export default function AgentsGallery(): ReactElement {
   const ref = useRef(null);
@@ -12,82 +12,108 @@ export default function AgentsGallery(): ReactElement {
   // Agents data
   const agents = [
     {
-      id: 'rule-builder',
-      name: 'Rule Builder',
-      description: 'Create and manage business rules with a visual builder.',
-      icon: <FiCode className={styles.agentIcon} />,
-      features: [
-        'Visual rule creation interface',
-        'Condition and action templates',
-        'Rule testing and validation',
-        'Import/export capabilities'
-      ],
-      learnMoreUrl: '/docs/agents/rule-builder'
-    },
-    {
-      id: 'rule-executor',
-      name: 'Rule Executor',
-      description: 'High-performance rule evaluation engine.',
+      id: 'wizard',
+      name: 'Technical Wizard',
+      description: 'High-level guidance and coordination for architecture decisions and project planning.',
       icon: <FiZap className={styles.agentIcon} />,
       features: [
-        'Parallel rule execution',
-        'Optimized condition evaluation',
-        'Performance monitoring',
-        'Resource usage controls'
+        'Expert architectural guidance',
+        'Design patterns discussion',
+        'Technical exploration and analysis',
+        'Clean code advisory'
       ],
-      learnMoreUrl: '/docs/agents/rule-executor'
+      learnMoreUrl: '/docs/user-guide/agents#wizard'
     },
     {
-      id: 'data-connector',
-      name: 'Data Connector',
-      description: 'Integrate with various data sources for rule processing.',
-      icon: <FiDatabase className={styles.agentIcon} />,
+      id: 'feature-planner',
+      name: 'Feature Planner',
+      description: 'Breaks down new feature requirements into detailed implementation plans.',
+      icon: <FiPieChart className={styles.agentIcon} />,
       features: [
-        'Database connectors (SQL, NoSQL)',
-        'API integrations',
-        'File system adapters',
-        'Real-time data streams'
+        'Feature implementation planning',
+        'Requirements breakdown',
+        'Task sequencing',
+        'Integration strategies'
       ],
-      learnMoreUrl: '/docs/agents/data-connector'
+      learnMoreUrl: '/docs/user-guide/agents#feature-planner'
     },
     {
-      id: 'decision-service',
-      name: 'Decision Service',
-      description: 'Expose rules as API endpoints for application integration.',
-      icon: <FiServer className={styles.agentIcon} />,
+      id: 'fix-planner',
+      name: 'Fix Planner',
+      description: 'Analyzes bugs and issues and creates detailed plans to resolve them.',
+      icon: <FiAlertCircle className={styles.agentIcon} />,
       features: [
-        'RESTful API endpoints',
-        'Authentication and authorization',
-        'Request rate limiting',
-        'Response caching'
+        'Bug analysis',
+        'Fix planning',
+        'Root cause identification',
+        'Testing strategies'
       ],
-      learnMoreUrl: '/docs/agents/decision-service'
+      learnMoreUrl: '/docs/user-guide/agents#fix-planner'
     },
     {
-      id: 'rule-analyzer',
-      name: 'Rule Analyzer',
-      description: 'Analyze and optimize rule performance and effectiveness.',
-      icon: <FiCpu className={styles.agentIcon} />,
+      id: 'implementer',
+      name: 'Implementer',
+      description: 'Translates plans into working code based on specifications.',
+      icon: <FiCode className={styles.agentIcon} />,
       features: [
-        'Rule execution statistics',
-        'Bottleneck identification',
-        'Optimization suggestions',
-        'Impact analysis'
+        'Code implementation',
+        'Plan translation',
+        'Best practices application',
+        'Efficient solutions'
       ],
-      learnMoreUrl: '/docs/agents/rule-analyzer'
+      learnMoreUrl: '/docs/user-guide/agents#implementer'
     },
     {
-      id: 'test-generator',
-      name: 'Test Generator',
-      description: 'Generate test scenarios to validate rule behavior.',
-      icon: <FiShuffle className={styles.agentIcon} />,
+      id: 'runner',
+      name: 'Runner',
+      description: 'Tests and verifies implementations to ensure they work correctly.',
+      icon: <FiPlay className={styles.agentIcon} />,
       features: [
-        'Automatic test case generation',
-        'Edge case identification',
-        'Regression testing',
-        'Test coverage reports'
+        'Test running',
+        'Implementation verification',
+        'Issue identification',
+        'Performance monitoring'
       ],
-      learnMoreUrl: '/docs/agents/test-generator'
+      learnMoreUrl: '/docs/user-guide/agents#runner'
+    },
+    {
+      id: 'documentation-agent',
+      name: 'Documentation Agent',
+      description: 'Creates and organizes documentation for code and features.',
+      icon: <FiBook className={styles.agentIcon} />,
+      features: [
+        'Documentation creation',
+        'API reference',
+        'User guides',
+        'Example generation'
+      ],
+      learnMoreUrl: '/docs/user-guide/agents#documentation-agent'
+    },
+    {
+      id: 'code-reviewer',
+      name: 'Code Reviewer',
+      description: 'Reviews code for quality issues and suggests improvements.',
+      icon: <FiEye className={styles.agentIcon} />,
+      features: [
+        'Code quality assessment',
+        'Best practices review',
+        'Security review',
+        'Performance optimization'
+      ],
+      learnMoreUrl: '/docs/user-guide/agents#code-reviewer'
+    },
+    {
+      id: 'git-committer',
+      name: 'Git Committer',
+      description: 'Helps create commit messages and manage version control changes.',
+      icon: <FiGitCommit className={styles.agentIcon} />,
+      features: [
+        'Commit message creation',
+        'Change summarization',
+        'Version control assistance',
+        'Changelog updates'
+      ],
+      learnMoreUrl: '/docs/user-guide/agents#git-committer'
     }
   ];
 

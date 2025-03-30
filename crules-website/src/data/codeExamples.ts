@@ -2,66 +2,87 @@ export const codeExampleTabs = [
   {
     label: 'CLI',
     value: 'cli',
-    content: `# Initialize a new project
-crules init my-rules-project
+    content: `# Initialize rules in the current project
+crules init
 
-# Create a new rule
-crules create rule "validate-email" --type "validation"
+# List available agents
+crules agent
 
-# Deploy rules to production
-crules deploy --env production
+# Get detailed information about an agent
+crules agent info wizard
 
-# Validate rules consistency
-crules validate`
+# Interactively select an agent
+crules agent select
+
+# Synchronize rules with main location
+crules sync
+
+# Merge local changes to main location
+crules merge
+
+# View all registered projects
+crules list
+
+# Clean up non-existent projects
+crules clean`
   },
   {
     label: 'JavaScript',
     value: 'javascript',
-    content: `// Import the CRules client
-import { CRules } from '@crules/client';
+    content: `// Define a simple discount eligibility rule
+const discountRule = {
+  name: 'discount_eligibility',
+  conditions: [
+    { field: 'customer.totalPurchases', operator: 'greaterThan', value: 1000 },
+    { field: 'customer.loyaltyYears', operator: 'greaterThan', value: 2 }
+  ],
+  actions: [
+    { type: 'applyDiscount', params: { percentage: 15 } }
+  ]
+};
 
-// Initialize the client
-const crules = new CRules({
-  apiKey: process.env.CRULES_API_KEY,
-  environment: 'production'
-});
+// Add the rule to your ruleset
+crules.addRule(discountRule);
 
-// Fetch and apply rules
-async function applyRules(data) {
-  const rules = await crules.getRules('user-validation');
-  const result = rules.execute(data);
-  
-  if (result.valid) {
-    console.log('Validation passed');
-  } else {
-    console.error('Validation failed:', result.errors);
+// Customer data
+const customer = {
+  id: 'cust-123',
+  totalPurchases: 1500,
+  loyaltyYears: 3
+};
+
+// Evaluate rules
+const results = crules.evaluate(customer);
+
+// Handle actions
+results.actions.forEach(action => {
+  if (action.type === 'applyDiscount') {
+    console.log(\`Applying \${action.params.percentage}% discount\`);
   }
-}
-
-applyRules(userData);`
+});`
   },
   {
-    label: 'Python',
-    value: 'python',
-    content: `# Import the CRules client
-from crules import Client
+    label: 'Agents',
+    value: 'agents',
+    content: `# Using the Technical Wizard agent
+@wizard.mdc I need help designing a new API endpoint
 
-# Initialize the client
-crules = Client(
-    api_key=os.environ.get('CRULES_API_KEY'),
-    environment='production'
-)
+# Using the Feature Planner agent
+@feature-planner.mdc Create a plan for implementing user authentication
 
-# Fetch and apply rules
-def apply_rules(data):
-    rules = crules.get_rules('user-validation')
-    result = rules.execute(data)
-    
-    if result.valid:
-        print('Validation passed')
-    else:
-        print('Validation failed:', result.errors)
+# Using the Fix Planner agent
+@fix-planner.mdc Analyze why our login flow fails on mobile devices
 
-apply_rules(user_data)`
+# Using the Implementer agent
+@implementer.mdc Implement the authentication service based on the plan
+
+# Using the Runner agent
+@runner.mdc Run tests for the authentication service
+
+# Using the Documentation agent
+@documentation-agent.mdc Create API documentation for the auth endpoints
+
+# Using the Code Reviewer agent
+@code-reviewer.mdc Review the authentication service implementation`
   }
 ]; 

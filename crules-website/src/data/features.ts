@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiLock, FiRefreshCw, FiZap, FiServer, FiCpu, FiAward } from 'react-icons/fi';
+import { FiLock, FiRefreshCw, FiZap, FiServer, FiCpu, FiAward, FiBox, FiCode, FiGitBranch } from 'react-icons/fi';
 
 export interface Feature {
   title: string;
@@ -10,33 +10,33 @@ export interface Feature {
 export const features: Feature[] = [
   {
     title: 'Centralized Rules Management',
-    description: 'Manage business rules in one place to ensure consistency across applications',
+    description: 'Maintain all your AI agent rules in one main location for consistency across projects',
     iconName: 'FiServer'
   },
   {
-    title: 'Real-time Synchronization',
-    description: 'Changes to rules are instantly propagated to all connected services',
+    title: 'Automatic Synchronization',
+    description: 'Ensure all projects have the latest versions of your rules with simple sync commands',
     iconName: 'FiRefreshCw'
   },
   {
-    title: 'Intelligent Validation',
-    description: 'Advanced validation ensures your rules are consistent and complete',
-    iconName: 'FiAward'
+    title: 'Agent Ecosystem',
+    description: 'Work with specialized AI agents for different tasks from planning to implementation',
+    iconName: 'FiCpu'
   },
   {
-    title: 'Secure Access Control',
-    description: 'Fine-grained permissions control who can view and modify rules',
+    title: 'Secure Collaboration',
+    description: 'Share rules with team members easily while maintaining proper access control',
     iconName: 'FiLock'
   },
   {
     title: 'High Performance',
-    description: 'Optimized for speed with minimal overhead in production environments',
+    description: 'Optimized for speed with minimal overhead in development environments',
     iconName: 'FiZap'
   },
   {
-    title: 'AI-Powered Agents',
-    description: 'Intelligent agents help optimize and maintain your rule sets',
-    iconName: 'FiCpu'
+    title: 'Extensibility',
+    description: 'Create custom agents by adding your own .mdc files in the rules directory',
+    iconName: 'FiCode'
   }
 ];
 
@@ -47,5 +47,8 @@ export const iconMap = {
   FiAward,
   FiLock,
   FiZap,
-  FiCpu
+  FiCpu,
+  FiBox,
+  FiCode,
+  FiGitBranch
 }; 

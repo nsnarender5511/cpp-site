@@ -43,11 +43,11 @@ export default function Hero(): ReactElement {
             variants={containerVariants}
           >
             <motion.h1 className={`${styles.heroTitle} text-burgundy`} variants={itemVariants}>
-              Business Rules Engine for Modern Development
+              AI Agent Management for Cursor
             </motion.h1>
             
             <motion.p className={`${styles.heroSubtitle} text-secondary leading-normal`} variants={itemVariants}>
-              Separate business logic from application code with a flexible, powerful rules engine
+              Centralize and synchronize your AI agents across multiple projects for consistent development experiences
             </motion.p>
             
             <motion.div className={styles.heroCtas} variants={itemVariants}>

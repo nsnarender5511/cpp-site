@@ -3,7 +3,7 @@ import { motion, useInView } from 'framer-motion';
 import styles from './styles.module.css';
 
 // Import SVG Icons
-import { FiPackage, FiCheckCircle, FiGitBranch, FiLayers, FiCpu, FiZap } from 'react-icons/fi';
+import { FiPackage, FiRefreshCw, FiUsers, FiLock, FiZap, FiCode } from 'react-icons/fi';
 
 export default function Features(): ReactElement {
   const ref = useRef(null);
@@ -12,34 +12,34 @@ export default function Features(): ReactElement {
   // Technical features data
   const features = [
     {
-      title: 'Rule Definition',
-      description: 'Define complex business rules with a simple, intuitive API that keeps logic separate from application code.',
+      title: 'Centralized Rules Management',
+      description: 'Maintain all your AI agent rules in one main location for easy access and updates across all projects.',
       icon: <FiPackage className={styles.featureIcon} />,
     },
     {
-      title: 'Schema Validation',
-      description: 'Built-in validation ensures rules are correctly structured and prevents common errors before deployment.',
-      icon: <FiCheckCircle className={styles.featureIcon} />,
+      title: 'Automatic Synchronization',
+      description: 'Keep rules in sync across multiple projects with simple commands for syncing and merging changes.',
+      icon: <FiRefreshCw className={styles.featureIcon} />,
     },
     {
-      title: 'Version Control',
-      description: 'Track changes to rules with automatic versioning. Roll back to previous versions when needed.',
-      icon: <FiGitBranch className={styles.featureIcon} />,
+      title: 'Agent Ecosystem',
+      description: 'Access specialized AI agents for different tasks, from planning and implementing features to fixing issues and documentation.',
+      icon: <FiUsers className={styles.featureIcon} />,
     },
     {
-      title: 'Rule Isolation',
-      description: 'Keep business logic isolated and independent of your application code, making both easier to maintain.',
-      icon: <FiLayers className={styles.featureIcon} />,
-    },
-    {
-      title: 'Extensibility',
-      description: 'Create custom functions and extensions to handle specific business requirements and integrations.',
-      icon: <FiCpu className={styles.featureIcon} />,
+      title: 'Secure Collaboration',
+      description: 'Share consistent agent rules with team members while maintaining control over your development experience.',
+      icon: <FiLock className={styles.featureIcon} />,
     },
     {
       title: 'High Performance',
-      description: 'Optimized evaluation engine ensures rules execute quickly, even with complex conditions and large datasets.',
+      description: 'Optimized rule syncing and agent selection ensures a smooth and responsive development experience.',
       icon: <FiZap className={styles.featureIcon} />,
+    },
+    {
+      title: 'Extensibility',
+      description: 'Create and add custom AI agents to suit your specific development workflow and project requirements.',
+      icon: <FiCode className={styles.featureIcon} />,
     },
   ];
 

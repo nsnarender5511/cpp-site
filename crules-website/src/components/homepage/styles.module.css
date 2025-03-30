@@ -276,20 +276,55 @@
 }
 
 .codeBlock {
-  background: #282c34; /* Darker background for better contrast */
+  background: #0d1117; /* GitHub-style dark background */
   border-radius: var(--border-radius-md);
   padding: var(--space-lg);
-  color: #e6e6e6; /* Lighter text color for better contrast */
-  font-family: var(--font-mono);
-  font-size: var(--font-size-sm);
+  color: #e6edf3; /* Bright text for better readability */
+  font-family: 'SF Mono', 'Roboto Mono', 'Fira Code', Consolas, 'Liberation Mono', Menlo, monospace; /* Modern code fonts */
+  font-size: 14px;
   overflow-x: auto;
   border-left: 4px solid var(--color-red);
   line-height: 1.6;
+  margin: 0;
+  position: relative;
 }
 
-.codeBlock pre {
-  margin: 0;
-  white-space: pre-wrap;
+.codeBlock code {
+  display: block;
+  width: 100%;
+  font-weight: 500; /* Slightly bolder text for better readability */
+  font-feature-settings: "calt" 1; /* Enable ligatures for supported fonts */
+}
+
+/* Command syntax highlighting */
+.command {
+  color: #ffcb6b; /* Bright amber for commands */
+  font-weight: 700; /* Make commands extra bold */
+}
+
+/* Comment syntax highlighting */
+.comment {
+  color: #7d8590; /* Muted color for comments */
+  font-style: italic;
+}
+
+/* Better scrollbar for code blocks */
+.codeBlock::-webkit-scrollbar {
+  height: 8px;
+}
+
+.codeBlock::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.codeBlock::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.codeBlock::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .copyButton {
