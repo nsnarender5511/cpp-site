@@ -75,7 +75,7 @@ export default function CTA(): ReactElement {
             >
               <Link 
                 className={`button button--lg ${styles.primaryCtaButton}`} 
-                to="/docs/intro"
+                to="/docs/README"
               >
                 Get Started
               </Link>

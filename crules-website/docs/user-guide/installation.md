@@ -24,7 +24,7 @@ crules is available for macOS, Linux, and Windows. There are several installatio
 The fastest way to install crules is using the install script:
 
 ```bash
-curl -sL https://github.com/org/crules/releases/latest/download/install.sh | bash
+curl -sL https://github.com/nsnarender5511/crules/releases/latest/download/install.sh | bash
 ```
 
 This script will:
@@ -38,12 +38,52 @@ This script will:
   <img src="../assets/gifs/installation/install-script.gif" alt="Install script process" width="600" />
 </details>
 
-### Method 2: Homebrew (macOS)
+### Method 2: Package Managers
 
-If you use Homebrew on macOS, you can install crules with:
+#### Homebrew (macOS and Linux)
+
+If you use Homebrew, you can install crules with:
 
 ```bash
+# Add the tap
+brew tap nsnarender5511/tap
+
+# Install crules
 brew install crules
+```
+
+#### Scoop (Windows)
+
+If you use Scoop on Windows, you can install crules with:
+
+```powershell
+# Add the bucket
+scoop bucket add nsnarender5511 https://github.com/nsnarender5511/scoop-bucket.git
+
+# Install crules
+scoop install nsnarender5511/crules
+```
+
+#### Linux Package Managers
+
+##### Debian/Ubuntu (deb)
+
+```bash
+# Download the latest .deb package
+curl -LO https://github.com/nsnarender5511/crules/releases/latest/download/crules_amd64.deb
+
+# Install the package
+sudo dpkg -i crules_amd64.deb
+```
+
+##### Fedora/CentOS/RHEL (rpm)
+
+```bash
+# Download the latest .rpm package
+curl -LO https://github.com/nsnarender5511/crules/releases/latest/download/crules_amd64.rpm
+
+# Install the package
+sudo rpm -i crules_amd64.rpm
 ```
 
 ### Method 3: Manual Installation
@@ -54,7 +94,7 @@ You can manually download and install the binary for your platform:
 
 ```bash
 # Download the latest macOS binary
-curl -Lo crules https://github.com/org/crules/releases/latest/download/crules-darwin-amd64
+curl -Lo crules https://github.com/nsnarender5511/crules/releases/latest/download/crules-darwin-amd64
 
 # Make it executable
 chmod +x crules
@@ -67,7 +107,7 @@ sudo mv crules /usr/local/bin/
 
 ```bash
 # Download the latest Linux binary
-curl -Lo crules https://github.com/org/crules/releases/latest/download/crules-linux-amd64
+curl -Lo crules https://github.com/nsnarender5511/crules/releases/latest/download/crules-linux-amd64
 
 # Make it executable
 chmod +x crules
@@ -78,7 +118,7 @@ sudo mv crules /usr/local/bin/
 
 #### Windows
 
-1. Download the [latest Windows binary](https://github.com/org/crules/releases/latest/download/crules-windows-amd64.exe)
+1. Download the [latest Windows binary](https://github.com/nsnarender5511/crules/releases/latest/download/crules-windows-amd64.exe)
 2. Rename it to `crules.exe`
 3. Move it to a directory in your PATH (e.g., `C:\Windows\System32\`)
 
@@ -86,7 +126,7 @@ Alternatively, using PowerShell:
 
 ```powershell
 # Download the latest Windows binary
-Invoke-WebRequest -Uri https://github.com/org/crules/releases/latest/download/crules-windows-amd64.exe -OutFile crules.exe
+Invoke-WebRequest -Uri https://github.com/nsnarender5511/crules/releases/latest/download/crules-windows-amd64.exe -OutFile crules.exe
 
 # Move it to a directory in your PATH
 Move-Item -Path crules.exe -Destination "$env:USERPROFILE\AppData\Local\Microsoft\WindowsApps\"
@@ -99,7 +139,7 @@ If you prefer to build from source, follow these steps:
 1. Ensure you have Go 1.19+ installed
 2. Clone the repository:
    ```bash
-   git clone https://github.com/org/crules.git
+   git clone https://github.com/nsnarender5511/crules.git
    ```
 3. Navigate to the directory:
    ```bash
@@ -127,7 +167,7 @@ crules --version
 You should see output similar to:
 
 ```
-crules v0.1.0
+crules v1.0.0
 ```
 
 ## First-Time Setup
@@ -147,7 +187,7 @@ The first time you run this command, you'll be guided through the setup process.
 To update crules using the install script:
 
 ```bash
-curl -sL https://github.com/org/crules/releases/latest/download/install.sh | bash
+curl -sL https://github.com/nsnarender5511/crules/releases/latest/download/install.sh | bash
 ```
 
 ### Using Homebrew

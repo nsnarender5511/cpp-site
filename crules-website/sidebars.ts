@@ -18,7 +18,7 @@ const sidebars: SidebarsConfig = {
 
   // But you can create a sidebar manually
   tutorialSidebar: [
-    'intro',
+    'README',
     {
       type: 'category',
       label: 'User Guide',
@@ -56,13 +56,14 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Examples',
       items: [
-        'examples/index',
+        'examples/README',
         'examples/basic-usage',
         'examples/advanced-usage',
         'examples/agent-workflows',
       ],
     },
     'documentation-map',
+    'ROADMAP',
   ],
 };
 

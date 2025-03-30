@@ -53,6 +53,22 @@ const config: Config = {
             from: '/getting-started',
             to: '/docs/user-guide/getting-started',
           },
+          {
+            from: '/docs/intro',
+            to: '/docs/README',
+          },
+          {
+            from: '/docs/examples/index',
+            to: '/docs/examples/README',
+          },
+          {
+            from: '/docs/api-reference',
+            to: '/docs/api-reference/README',
+          },
+          {
+            from: '/docs/api',
+            to: '/docs/api-reference/README',
+          },
         ],
       },
     ],
@@ -139,7 +155,7 @@ const config: Config = {
             },
             {
               label: 'API Reference',
-              to: '/docs/api-reference',
+              to: '/docs/api-reference/README',
             },
           ],
         },
@@ -148,7 +164,7 @@ const config: Config = {
           items: [
             {
               label: 'Examples',
-              to: '/docs/examples',
+              to: '/docs/examples/README',
             },
             {
               label: 'API Explorer',

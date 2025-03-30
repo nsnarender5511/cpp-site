@@ -54,6 +54,30 @@ crules init
 - Updates `.gitignore` to exclude the `.cursor/` directory
 - If main location doesn't exist, guides you through setup options
 
+#### Gitignore Management Feature
+
+When running `init`, crules automatically checks for a `.gitignore` file in your project and adds the `.cursor/` directory to it. This ensures your rule files and agent configurations aren't unnecessarily committed to version control.
+
+**How It Works:**
+- Checks if a `.gitignore` file exists in the project root
+- Creates one if it doesn't exist
+- Adds `.cursor/` to the file if it's not already excluded
+- Preserves all existing entries in the file
+
+**Manual Management:**
+
+You can also manually update your `.gitignore` through the Git API in your custom scripts:
+
+```go
+import "crules/internal/git"
+
+// Add entries to .gitignore
+err := git.UpdateGitignore("/path/to/project", []string{".cursor/", "*.log"})
+if err != nil {
+    // Handle error
+}
+```
+
 **First-time Setup Options:**
 1. Create an empty directory structure
 2. Fetch rules from a git repository
@@ -273,11 +297,15 @@ Select an agent:
 Imports agent rules from a URL.
 
 ```bash
-crules import <url>
+crules import <url> [options]
 ```
 
 **Parameters:**
 - `<url>`: The URL to import rules from (required)
+
+**Options:**
+- `-f, --force`: Force overwrite existing rules
+- `-w, --web`: Enable web parsing mode (optimized for HTML content)
 
 **Behavior:**
 - Fetches content from the specified URL
@@ -300,6 +328,15 @@ Do you want to import this rule? [y/N] y
 Storing rules to main location...
 
 ✓ Successfully imported 1 rule
+```
+
+**Examples:**
+```bash
+# Import rules from a GitHub repository
+crules import https://github.com/username/repo/raw/main/rules/agent.mdc
+
+# Import rules from a web page with force overwrite
+crules import https://example.com/rules -f -w
 ```
 
 ## Exit Codes

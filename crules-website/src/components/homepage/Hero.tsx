@@ -53,7 +53,7 @@ export default function Hero(): ReactElement {
             <motion.div className={styles.heroCtas} variants={itemVariants}>
               <Link 
                 className="button button--primary-gradient button--lg"
-                to="/docs/intro"
+                to="/docs/README"
               >
                 Get Started
               </Link>

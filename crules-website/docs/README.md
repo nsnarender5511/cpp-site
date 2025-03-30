@@ -1,22 +1,22 @@
 ---
 slug: /
 sidebar_position: 1
-version: v0.1.0
+version: 1.0.0
 last_updated: 2023-03-29
-applies_to: crules v0.1.0+
+applies_to: crules (version 1.0.0)
 ---
 
 # crules Documentation
 
 > 📚 Welcome to the comprehensive documentation for the crules tool. This documentation aims to help you understand, use, and extend the functionality of crules.
 
-[crules Logo - Image Placeholder]
+<div style={{textAlign: 'center', margin: '20px 0'}}>
+  <img src="./assets/images/logo.png" alt="crules Logo" width="300" />
+</div>
 
 ## 📋 Quick Navigation
 
 Looking for something specific? Check out our [Documentation Map](./documentation-map.md) for a complete overview of all documentation resources.
-
-> ⚠️ **Note**: We are consolidating API documentation. Please use the [api-reference](./api-reference/) directory instead of the deprecated [api](./api/) directory, which will be removed in a future update.
 
 ## 📋 Table of Contents
 
@@ -25,6 +25,7 @@ Looking for something specific? Check out our [Documentation Map](./documentatio
 - [Examples](#examples)
 - [API Reference](#api-reference)
 - [Contributing](#contributing)
+- [Roadmap](#roadmap)
 
 ## 🚀 User Guide
 
@@ -44,6 +45,7 @@ Quickly get up and running with crules:
 
 - [Quick Start](./user-guide/getting-started.md)
 - [Basic Usage](./user-guide/getting-started.md#basic-usage)
+- [Importing Agent Rules](./user-guide/getting-started.md#importing-agents)
 - [Command Reference](./user-guide/commands.md)
 
 ### 🧠 Agent System
@@ -111,6 +113,14 @@ Learn how you can contribute to crules:
 - [Code of Conduct](./developer-guide/code-of-conduct.md)
 - [Development Workflow](./developer-guide/contributing.md#development-workflow)
 
+## 📋 Roadmap
+
+Explore our plans for future development:
+
+- [Current Roadmap](./ROADMAP.md)
+- [Feature Requests](./ROADMAP.md#feature-requests)
+- [Contribution Focus Areas](./ROADMAP.md#contribution-focus-areas)
+
 ## 📊 Visualizations
 
 The documentation includes interactive and colorful diagrams using Mermaid:
@@ -130,10 +140,10 @@ The documentation includes visual guides to help you understand key concepts:
 
 ## 📈 Version History
 
-- Current Version: 0.1.0
-- [Changelog](https://github.com/crules-org/crules-website/blob/main/CHANGELOG.md)
+- Current Version: 1.0.0
+- [Changelog](https://github.com/nsnarender5511/crules/blob/main/CHANGELOG.md)
 - [Roadmap](./ROADMAP.md)
 
 ---
 
-© 2023 crules Contributors | [License](https://github.com/crules-org/crules-website/blob/main/LICENSE)
+© 2023 crules Contributors | [License](https://github.com/nsnarender5511/crules/blob/main/LICENSE)

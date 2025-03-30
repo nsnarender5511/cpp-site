@@ -1,7 +1,7 @@
 ---
-version: v0.1.0
-last_updated: 2023-03-29
-applies_to: crules v0.1.0+
+version: dev
+last_updated: 2023-07-13
+applies_to: crules (current development version)
 ---
 
 # Architecture
@@ -19,71 +19,61 @@ The crules tool is designed with a modular architecture that separates concerns 
 
 ## System Architecture
 
-[Architecture Overview - Image Placeholder]
+```mermaid
+graph TD
+    User[User] --> |Uses| CLI
+    CLI[Command Line Interface] --> Core
+    
+    subgraph CoreComponents["Core Components"]
+        Core[Core System] --> Registry
+        Core --> Parser
+        Core --> Storage
+        Registry[Project Registry] --> Storage
+        Parser[Rule Parser] --> Storage
+    end
+    
+    subgraph AgentSystem["Agent System"]
+        Core --> AgentRegistry
+        AgentRegistry[Agent Registry] --> AgentLoader
+        AgentLoader[Agent Loader] --> Rules
+    end
+    
+    subgraph StorageLayer["Storage Layer"]
+        Storage[Storage System] --> |Reads/Writes| Rules
+        Rules[Rule Files] --> |Stored in| MainLocation
+        Rules --> |Synced to| ProjectLocations
+    end
+    
+    subgraph ConfigSection["Configuration"]
+        Core --> Config
+        Config[Configuration] --> |Stored in| ConfigFile
+    end
+    
+    %% Node styles
+    style User fill:#f96,stroke:#f63,stroke-width:2px
+    style CLI fill:#69f,stroke:#36f,stroke-width:2px
+    style Core fill:#f9f,stroke:#c6c,stroke-width:2px
+    style Storage fill:#9f6,stroke:#6c3,stroke-width:2px
+    
+    %% Subgraph styles using classDef and class
+    classDef coreStyle fill:#fcf,stroke:#c9c,stroke-width:1px
+    classDef agentStyle fill:#cff,stroke:#9cc,stroke-width:1px
+    classDef storageStyle fill:#cfc,stroke:#9c9,stroke-width:1px
+    classDef configStyle fill:#ffc,stroke:#cc9,stroke-width:1px
+    
+    class CoreComponents coreStyle
+    class AgentSystem agentStyle
+    class StorageLayer storageStyle
+    class ConfigSection configStyle
+```
 
 *Figure 1: High-level architecture of the crules system*
 
-The system is organized into several interconnected components that work together to provide the functionality of crules. The interactive diagram below represents the high-level architecture with color-coded components:
-
-```mermaid
-graph TD
-    User((👤 User)):::user --> CLI[/Command Line Interface\]:::cli
-    
-    subgraph Core["🔧 Core System"]
-        CLI --> Init[Initialize]:::command
-        CLI --> Sync[Synchronize]:::command
-        CLI --> Merge[Merge]:::command
-        CLI --> Config[Configure]:::command
-        CLI --> AgentCmd[Agent Commands]:::command
-        
-        AgentCmd --> AgentList[List Agents]:::agentOp
-        AgentCmd --> AgentSelect[Select Agent]:::agentOp
-        AgentCmd --> AgentInfo[Agent Info]:::agentOp
-        
-        Init --> Registry[(Project Registry)]:::registry
-        Sync --> Registry
-        Merge --> Registry
-        
-        Registry --> FileOps[File Operations]:::fileOp
-    end
-    
-    subgraph Storage["💾 Storage"]
-        MainLoc[("📁 Main Rules\nLocation")]:::storage <--> FileOps
-        Projects[("📁 Project\nRules")]:::storage <--> FileOps
-        ConfigFile[("⚙️ Configuration\nFile")]:::storage <--> Config
-    end
-    
-    subgraph UI["🖥️ User Interface"]
-        AgentSelect --> TermUI{Terminal UI}:::ui
-        AgentList --> TermUI
-        AgentInfo --> TermUI
-    end
-    
-    %% Enhanced style definitions
-    classDef user fill:#ff9966,stroke:#ff6600,stroke-width:2px,color:#333,font-weight:bold
-    classDef cli fill:#66b3ff,stroke:#0066cc,stroke-width:2px,color:#333,font-weight:bold
-    classDef command fill:#ffcc99,stroke:#ff9933,stroke-width:2px,color:#333
-    classDef agentOp fill:#cc99ff,stroke:#9933ff,stroke-width:2px,color:#333
-    classDef registry fill:#ff99cc,stroke:#ff3399,stroke-width:2px,color:#333
-    classDef fileOp fill:#99ccff,stroke:#3399ff,stroke-width:2px,color:#333
-    classDef storage fill:#99ff99,stroke:#33cc33,stroke-width:2px,color:#333
-    classDef ui fill:#ffff99,stroke:#cccc00,stroke-width:2px,color:#333,font-weight:bold
-    
-    %% Style assignment for subgraphs
-    style Core fill:#f0f0ff,stroke:#9999cc,stroke-width:2px,color:#333,font-weight:bold
-    style Storage fill:#f0fff0,stroke:#99cc99,stroke-width:2px,color:#333,font-weight:bold
-    style UI fill:#fffff0,stroke:#cccc99,stroke-width:2px,color:#333,font-weight:bold
-```
-
-*Figure 2: Interactive diagram of system components and their relationships*
+The system is organized into several interconnected components that work together to provide the functionality of crules. 
 
 ## Key Components
 
 ### Command Line Interface (CLI)
-
-[CLI Component - Image Placeholder]
-
-*Figure 3: Command Line Interface component*
 
 The CLI component provides the user interface for the tool. It:
 - Processes command line arguments
@@ -95,7 +85,13 @@ The CLI is implemented using the Cobra library, which provides a structured appr
 
 <details>
   <summary>📺 View CLI Interaction Example</summary>
-  <img src="../assets/gifs/usage/command-usage.gif" alt="CLI interaction example" width="600" />
+  <div style={{width: '600px', height: '400px', border: '2px dashed #ccc', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '20px 0', backgroundColor: '#f8f8f8', borderRadius: '5px'}}>
+    <div style={{textAlign: 'center'}}>
+      <div style={{fontSize: '48px', marginBottom: '10px'}}>🖥️</div>
+      <div style={{fontWeight: 'bold', marginBottom: '5px'}}>CLI Interaction Example</div>
+      <div style={{color: '#666', fontStyle: 'italic'}}>[Animated demonstration would go here]</div>
+    </div>
+  </div>
 </details>
 
 ### Core System
@@ -111,9 +107,45 @@ The core system implements the main functionality of the tool:
 
 ### Agent System
 
-[Agent System - Image Placeholder]
+```mermaid
+flowchart TD
+    subgraph AgentComponents["Agent Components"]
+        Registry[Agent Registry] --> Parser
+        Registry --> Selector
+        Registry --> Loader
+        
+        Parser[Agent Parser] --> |Extracts| AgentMeta
+        Parser --> RuleFiles
+        
+        Selector[Agent Selector] --> |Uses| TerminalUI
+        Selector --> |Provides| AgentChoice
+        
+        Loader[Agent Loader] --> |Loads| SelectedAgent
+        Loader --> |Uses| AgentCache
+    end
+    
+    RuleFiles[(Rule Files)] --> |Stored in| FileSystem
+    
+    Core[Core System] --> |Initializes| Registry
+    User --> |Interacts with| Selector
+    TerminalUI --> |Displays to| User
+    AgentChoice --> |Configures| User
+    SelectedAgent --> |Assists| User
+    
+    %% Node styles
+    style User fill:#f96,stroke:#f63,stroke-width:2px
+    style Core fill:#f9f,stroke:#c6c,stroke-width:2px
+    style Registry,Parser,Selector,Loader fill:#c9f,stroke:#96c,stroke-width:1px
+    style TerminalUI fill:#69f,stroke:#36f,stroke-width:2px
+    style RuleFiles fill:#9f6,stroke:#6c3,stroke-width:2px
+    style AgentMeta,AgentChoice,SelectedAgent,AgentCache fill:#ffc,stroke:#cc9,stroke-width:1px
+    
+    %% Subgraph styles
+    classDef componentStyle fill:#ecf,stroke:#c9c,stroke-width:1px
+    class AgentComponents componentStyle
+```
 
-*Figure 4: Agent System architecture*
+*Figure 2: Agent System architecture*
 
 The Agent System is a specialized component that:
 - Discovers available agents from rule files
@@ -126,67 +158,6 @@ The Agent System has the following subcomponents:
 - **Parser**: Extracts agent information from rule files
 - **Selector**: Provides an interactive UI for agent selection
 - **Loader**: Loads agent definitions for use
-
-The detailed flow of the agent selection process is illustrated in the diagram below:
-
-```mermaid
-flowchart TD
-    %% Define the main flow
-    Start([🚀 Start]):::start --> Command["💻 crules agent select"]:::command
-    Command --> LoadConfig["⚙️ Load Configuration"]:::process
-    LoadConfig --> ScanRules["🔍 Scan for Rule Files"]:::process
-    ScanRules --> ExtractMeta["📋 Extract Agent Metadata"]:::process
-    ExtractMeta --> BuildMenu["🖥️ Build Selection Menu"]:::process
-    BuildMenu --> DisplayUI["👁️ Display Terminal UI"]:::ui
-    
-    %% User interaction
-    DisplayUI --> UserSelect{"🤔 User Selection"}:::decision
-    UserSelect -->|"Choose Agent"| ValidAgent["✅ Valid Agent Selected"]:::valid
-    UserSelect -->|"Cancel"| NoSelection["❌ No Selection Made"]:::invalid
-    
-    %% Process selection
-    ValidAgent --> SaveConfig["💾 Save Selected Agent to Config"]:::process
-    SaveConfig --> LoadAgent["📂 Load Agent Definition"]:::process
-    LoadAgent --> Complete([🎉 Complete]):::end
-    
-    %% Handle no selection
-    NoSelection --> ExitNoChange["🚫 Exit Without Changes"]:::process
-    ExitNoChange --> Exit([🚪 Exit]):::end
-    
-    %% Error handling branch
-    ScanRules -->|"No Rules Found"| NoRules["⚠️ No Rules Found"]:::error
-    NoRules --> CreatePrompt["❓ Create Rules?"]:::decision
-    CreatePrompt -->|"Yes"| InitRules["📝 Initialize Rules"]:::process
-    CreatePrompt -->|"No"| Exit
-    InitRules --> Command
-    
-    %% Styles
-    classDef start fill:#4CAF50,stroke:#45a049,stroke-width:2px,color:white,font-weight:bold
-    classDef end fill:#607D8B,stroke:#546E7A,stroke-width:2px,color:white,font-weight:bold
-    classDef command fill:#2196F3,stroke:#1E88E5,stroke-width:2px,color:white
-    classDef process fill:#9C27B0,stroke:#8E24AA,stroke-width:2px,color:white
-    classDef decision fill:#FF9800,stroke:#F57C00,stroke-width:2px,color:white
-    classDef valid fill:#4CAF50,stroke:#45a049,stroke-width:2px,color:white
-    classDef invalid fill:#F44336,stroke:#E53935,stroke-width:2px,color:white
-    classDef error fill:#F44336,stroke:#E53935,stroke-width:2px,color:white
-    classDef ui fill:#00BCD4,stroke:#00ACC1,stroke-width:2px,color:white
-    
-    %% Add tooltips for better accessibility
-    linkStyle 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16 stroke-width:2px,fill:none,stroke:#9E9E9E
-    
-    %% Add a title
-    subgraph "🤖 Agent Selection Process"
-    Start
-    end
-    style "🤖 Agent Selection Process" fill:#ECEFF1,stroke:#CFD8DC,stroke-width:2px,color:#263238,font-weight:bold
-```
-
-*Figure 5: Detailed flowchart of the agent selection process*
-
-<details>
-  <summary>📺 View Agent Selection Process</summary>
-  <img src="../assets/gifs/usage/agent-selection-process.gif" alt="Agent selection process" width="600" />
-</details>
 
 ### Storage Layer
 
@@ -202,65 +173,54 @@ The storage layer manages the persistence of rules and configuration:
 
 ### Rule Synchronization Flow
 
-[Synchronization Flow - Image Placeholder]
-
-*Figure 6: Rule synchronization flow between main location and projects*
-
-The synchronization process follows a sequential flow as illustrated in this diagram:
-
 ```mermaid
-sequenceDiagram
-    participant User as 👤 User
-    participant CLI as 🖥️ CLI
-    participant Core as 🔧 Core System
-    participant MainLoc as 📁 Main Location
-    participant ProjLoc as 📁 Project Location
-
-    %% Define styles using note annotations
-    note over User: fill:#ff9966,stroke:#ff6600
-    note over CLI: fill:#66b3ff,stroke:#0066cc
-    note over Core: fill:#cc99ff,stroke:#9933ff
-    note over MainLoc: fill:#99ff99,stroke:#33cc33
-    note over ProjLoc: fill:#99ff99,stroke:#33cc33
-    
-    %% Sequence starts
-    User->>+CLI: 🚀 Execute Sync Command
-    CLI->>+Core: 📥 Process Command
-    
-    %% Loading phase
-    Core->>Core: 🔍 Load Configuration
-    
-    %% Validation phase
-    alt Main Location Not Set
-        Core-->>CLI: ❌ Error: Main Location Not Set
-        CLI-->>User: ❌ Display Error
-    else Main Location Set
-        Core->>+MainLoc: 📂 Scan Files
-        MainLoc-->>-Core: 📋 File List & Metadata
-        Core->>+ProjLoc: 📂 Scan Files
-        ProjLoc-->>-Core: 📋 File List & Metadata
+graph TD
+    subgraph WorkflowSection["Workflow"]
+        direction TB
+        Start[Start] --> CheckConfig{Config Valid?}
+        CheckConfig -->|Yes| ScanMain[Scan Main Location]
+        CheckConfig -->|No| ConfigError[Config Error]
         
-        %% Comparison phase
-        Core->>Core: 🔍 Compare File Lists
+        ScanMain --> ScanProject[Scan Project Location]
+        ScanProject --> Compare[Compare Files]
         
-        %% Synchronization phase
-        loop For Each Updated File
-            Core->>+MainLoc: 📤 Read File
-            MainLoc-->>-Core: 📄 File Content
-            Core->>+ProjLoc: 📥 Write File
-            ProjLoc-->>-Core: ✅ Write Confirmation
-        end
+        Compare --> NeedSync{Changes to Sync?}
+        NeedSync -->|Yes| CopyFiles[Copy Files]
+        NeedSync -->|No| NoAction[No Action Needed]
         
-        %% Completion phase
-        Core-->>-CLI: 📊 Sync Results
-        CLI-->>-User: ✅ Display Success
+        CopyFiles --> UpdateMeta[Update Metadata]
+        UpdateMeta --> Report[Generate Report]
+        NoAction --> Report
+        
+        Report --> End[End]
     end
     
-    %% Final confirmation
-    Note over User,ProjLoc: 🎉 Synchronization Complete!
+    subgraph LocationSection["Locations"]
+        MainLocation[(Main Location)]
+        ProjectLocation[(Project Location)]
+    end
+    
+    ScanMain --> MainLocation
+    ScanProject --> ProjectLocation
+    CopyFiles --> MainLocation
+    CopyFiles --> ProjectLocation
+    
+    %% Node styles
+    style Start,End fill:#9f6,stroke:#6c3,stroke-width:2px
+    style CheckConfig,NeedSync fill:#fc9,stroke:#c96,stroke-width:2px
+    style ConfigError fill:#f66,stroke:#c33,stroke-width:2px
+    style ScanMain,ScanProject,Compare,CopyFiles,UpdateMeta,Report,NoAction fill:#69f,stroke:#36f,stroke-width:1px
+    style MainLocation,ProjectLocation fill:#fc6,stroke:#c93,stroke-width:2px
+    
+    %% Subgraph styles
+    classDef workflowStyle fill:#eef,stroke:#cce,stroke-width:1px
+    classDef locationStyle fill:#efe,stroke:#cec,stroke-width:1px
+    
+    class WorkflowSection workflowStyle
+    class LocationSection locationStyle
 ```
 
-*Figure 7: Sequence diagram showing the synchronization workflow*
+*Figure 3: Rule synchronization flow between main location and projects*
 
 The synchronization process follows these steps:
 
@@ -285,7 +245,13 @@ The synchronization process follows these steps:
 
 <details>
   <summary>📺 View Synchronization Process</summary>
-  <img src="../assets/gifs/workflows/sync-process.gif" alt="Synchronization process" width="600" />
+  <div style={{width: '600px', height: '400px', border: '2px dashed #ccc', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '20px 0', backgroundColor: '#f8f8f8', borderRadius: '5px'}}>
+    <div style={{textAlign: 'center'}}>
+      <div style={{fontSize: '48px', marginBottom: '10px'}}>🔄</div>
+      <div style={{fontWeight: 'bold', marginBottom: '5px'}}>Synchronization Process</div>
+      <div style={{color: '#666', fontStyle: 'italic'}}>[Animated demonstration would go here]</div>
+    </div>
+  </div>
 </details>
 
 ### Agent Selection Flow
@@ -349,10 +315,6 @@ The error handling strategy follows these principles:
 3. **Graceful degradation**: The system attempts to continue operation when possible
 4. **User-friendly messaging**: Error messages are translated into user-friendly terms in the CLI
 
-[Error Handling - Image Placeholder]
-
-*Figure 8: Error handling flow in the system*
-
 ## Extension Points
 
 The architecture includes several extension points:
@@ -366,9 +328,38 @@ The architecture includes several extension points:
 
 ## Future Directions
 
-[Future Roadmap - Image Placeholder]
+```mermaid
+flowchart TB
+    v02[v0.2 Release] --> v03[v0.3 Release] --> v10[v1.0 Release] --> future[Future Plans]
+    
+    v02 --- v02_1["Plugin System"] 
+    v02 --- v02_2["Enhanced Agent System"] 
+    v02 --- v02_3["Improved UI"]
 
-*Figure 9: Future architecture roadmap*
+    v03 --- v03_1["Remote Agents"] 
+    v03 --- v03_2["Rule Marketplace"] 
+    v03 --- v03_3["Collaboration Features"]
+
+    v10 --- v10_1["Web Interface"] 
+    v10 --- v10_2["API Server"] 
+    v10 --- v10_3["Enterprise Features"]
+
+    future --- fut_1["Cloud Integration"] 
+    future --- fut_2["AI-assisted Rule Generation"] 
+    future --- fut_3["IDE Integrations"]
+    
+    style v02 fill:#e1f5fe,stroke:#4fc3f7,stroke-width:2px,color:#0277bd,font-weight:bold
+    style v03 fill:#e8f5e9,stroke:#66bb6a,stroke-width:2px,color:#2e7d32,font-weight:bold
+    style v10 fill:#f3e5f5,stroke:#ab47bc,stroke-width:2px,color:#7b1fa2,font-weight:bold
+    style future fill:#fff3e0,stroke:#ffa726,stroke-width:2px,color:#ef6c00,font-weight:bold
+    
+    style v02_1,v02_2,v02_3 fill:#e1f5fe,stroke:#4fc3f7,stroke-width:1px,color:#0277bd
+    style v03_1,v03_2,v03_3 fill:#e8f5e9,stroke:#66bb6a,stroke-width:1px,color:#2e7d32
+    style v10_1,v10_2,v10_3 fill:#f3e5f5,stroke:#ab47bc,stroke-width:1px,color:#7b1fa2
+    style fut_1,fut_2,fut_3 fill:#fff3e0,stroke:#ffa726,stroke-width:1px,color:#ef6c00
+```
+
+*Figure 4: Future architecture roadmap*
 
 The architecture is designed to support future enhancements:
 
@@ -384,13 +375,6 @@ The architecture is designed to support future enhancements:
 - [Extending Agents](./extending-agents.md)
 - [Contributing Guidelines](./contributing.md)
 - [API Reference](../api-reference/core-api.md)
-
-## 🔄 Next Steps:
-After completing the document review and presenting findings:
-
-"The **Documentation Agent** would be ideal for implementing these recommendations. They can apply the suggested improvements to enhance documentation clarity, accuracy, and organization based on this analysis.
-
-use @documentation-agent.mdc to invoke"
 
 ## Navigation
 

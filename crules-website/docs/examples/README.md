@@ -1,6 +1,9 @@
 ---
 slug: /examples
 sidebar_position: 1
+version: dev
+last_updated: 2023-07-13
+applies_to: crules (current development version)
 ---
 
 # CRules Examples

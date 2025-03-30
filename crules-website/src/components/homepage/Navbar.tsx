@@ -22,9 +22,9 @@ export default function Navbar(): ReactElement {
 
   // Menu links
   const menuLinks = [
-    { label: 'Documentation', url: '/docs/intro' },
-    { label: 'API Reference', url: '/docs/api-reference' },
-    { label: 'Examples', url: '/docs/examples' },
+    { label: 'Documentation', url: '/docs/README' },
+    { label: 'API Reference', url: '/docs/api-reference/README' },
+    { label: 'Examples', url: '/docs/examples/README' },
     { label: 'Blog', url: '/blog' },
   ];
 
@@ -71,7 +71,7 @@ export default function Navbar(): ReactElement {
           >
             <Link 
               className={`button button--primary ${styles.navbarCta}`}
-              to="/docs/intro"
+              to="/docs/README"
             >
               Get Started
             </Link>

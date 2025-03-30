@@ -50,10 +50,10 @@ The first time you run this command, you'll be guided through setting up your ma
 
 ```mermaid
 sequenceDiagram
-    participant User as 👤 User
-    participant CLI as 🖥️ CLI
-    participant System as 🔧 Core System
-    participant Files as 📁 Files
+    participant User as User
+    participant CLI as CLI
+    participant System as System
+    participant Files as Files
     
     User->>CLI: crules init
     CLI->>System: Check main location
@@ -73,16 +73,17 @@ sequenceDiagram
     
     System->>Files: Create project files
     System->>User: Setup complete
-    
-    style User fill:#ff9966,stroke:#ff6600
-    style CLI fill:#66b3ff,stroke:#0066cc
-    style System fill:#9966ff,stroke:#6600cc
-    style Files fill:#66cc99,stroke:#009966
 ```
 
 <details>
   <summary>📺 View First-Time Setup Process</summary>
-  <img src="../assets/gifs/installation/first-time-setup.gif" alt="First-time setup process" width="600" />
+  <div style={{width: '600px', height: '400px', border: '2px dashed #ccc', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '20px 0', backgroundColor: '#f8f8f8', borderRadius: '5px'}}>
+    <div style={{textAlign: 'center'}}>
+      <div style={{fontSize: '48px', marginBottom: '10px'}}>🚀</div>
+      <div style={{fontWeight: 'bold', marginBottom: '5px'}}>First-Time Setup Process</div>
+      <div style={{color: '#666', fontStyle: 'italic'}}>[Animated demonstration would go here]</div>
+    </div>
+  </div>
 </details>
 
 ### Project Management
@@ -131,7 +132,13 @@ This will:
 
 <details>
   <summary>📺 View Synchronization Process</summary>
-  <img src="../assets/gifs/usage/sync-process.gif" alt="Synchronization process" width="600" />
+  <div style={{width: '600px', height: '400px', border: '2px dashed #ccc', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '20px 0', backgroundColor: '#f8f8f8', borderRadius: '5px'}}>
+    <div style={{textAlign: 'center'}}>
+      <div style={{fontSize: '48px', marginBottom: '10px'}}>🔄</div>
+      <div style={{fontWeight: 'bold', marginBottom: '5px'}}>Synchronization Process</div>
+      <div style={{color: '#666', fontStyle: 'italic'}}>[Animated demonstration would go here]</div>
+    </div>
+  </div>
 </details>
 
 ## Working with Agents
@@ -158,7 +165,13 @@ This will present a menu of available agents. Use the arrow keys to navigate, th
 
 <details>
   <summary>📺 View Agent Selection Process</summary>
-  <img src="../assets/gifs/usage/agent-selection-process.gif" alt="Agent selection process" width="600" />
+  <div style={{width: '600px', height: '400px', border: '2px dashed #ccc', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '20px 0', backgroundColor: '#f8f8f8', borderRadius: '5px'}}>
+    <div style={{textAlign: 'center'}}>
+      <div style={{fontSize: '48px', marginBottom: '10px'}}>🤖</div>
+      <div style={{fontWeight: 'bold', marginBottom: '5px'}}>Agent Selection Process</div>
+      <div style={{color: '#666', fontStyle: 'italic'}}>[Animated demonstration would go here]</div>
+    </div>
+  </div>
 </details>
 
 ### Getting Agent Information

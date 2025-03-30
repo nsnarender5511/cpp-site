@@ -248,6 +248,30 @@ if err != nil {
 fmt.Printf("Removed %d non-existent projects\n", removed)
 ```
 
+#### ImportRules
+
+```go
+func ImportRules(url string, force bool, webMode bool) error
+```
+
+Imports agent rules from a specified URL.
+
+**Parameters:**
+- `url`: The URL to import rules from
+- `force`: Whether to force overwrite existing rules
+- `webMode`: Whether to enable web parsing mode for HTML content
+
+**Returns:**
+- `error`: An error if importing fails
+
+**Example:**
+```go
+err := core.ImportRules("https://example.com/rules", true, false)
+if err != nil {
+    log.Fatalf("Failed to import rules: %v", err)
+}
+```
+
 ## Parser
 
 The `Parser` processes content into structured rules.

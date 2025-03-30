@@ -1,9 +1,9 @@
 ---
 slug: /api-reference
 sidebar_position: 1
-version: v0.1.0
-last_updated: 2023-03-29
-applies_to: crules v0.1.0+
+version: dev
+last_updated: 2023-07-13
+applies_to: crules (current development version)
 ---
 
 # API Reference

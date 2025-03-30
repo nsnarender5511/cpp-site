@@ -1,7 +1,7 @@
 ---
-version: v0.1.0
+version: 1.0.0
 last_updated: 2023-03-29
-applies_to: crules v0.1.0+
+applies_to: crules (version 1.0.0)
 ---
 
 # Documentation Map
@@ -16,6 +16,7 @@ graph TD
   README --> DG[Developer Guide]
   README --> EX[Examples]
   README --> API[API Reference]
+  README --> ROAD[Roadmap]
   
   UG --> UG_INST[Installation]
   UG --> UG_CONF[Configuration]
@@ -62,6 +63,9 @@ graph TD
 | &nbsp;&nbsp;Extending Agents | [docs/developer-guide/extending-agents.md](./developer-guide/extending-agents.md) | Creating custom agents |
 | &nbsp;&nbsp;Building | [docs/developer-guide/building.md](./developer-guide/building.md) | Building from source |
 | Examples | [docs/examples/](./examples/) | Usage examples and workflows |
+| &nbsp;&nbsp;Basic Usage | [docs/examples/basic-usage.md](./examples/basic-usage.md) | Basic usage examples |
+| &nbsp;&nbsp;Advanced Usage | [docs/examples/advanced-usage.md](./examples/advanced-usage.md) | Advanced usage examples |
+| &nbsp;&nbsp;Agent Workflows | [docs/examples/agent-workflows.md](./examples/agent-workflows.md) | Agent workflow examples |
 | API Reference | [docs/api-reference/](./api-reference/) | Technical reference for APIs |
 | &nbsp;&nbsp;Core API | [docs/api-reference/core-api.md](./api-reference/core-api.md) | Core functionality API |
 | &nbsp;&nbsp;Agent API | [docs/api-reference/agent-api.md](./api-reference/agent-api.md) | Agent system API |
@@ -69,6 +73,7 @@ graph TD
 | &nbsp;&nbsp;Utils API | [docs/api-reference/utils-api.md](./api-reference/utils-api.md) | Utilities API |
 | &nbsp;&nbsp;Git API | [docs/api-reference/git-api.md](./api-reference/git-api.md) | Git integration API |
 | &nbsp;&nbsp;Version API | [docs/api-reference/version-api.md](./api-reference/version-api.md) | Version info API |
+| Roadmap | [docs/ROADMAP.md](./ROADMAP.md) | Future development plans |
 
 ## How to Use This Documentation
 
@@ -77,7 +82,8 @@ graph TD
 3. **Working with Agents**: Check the [Agent System](./user-guide/agents.md) documentation.
 4. **Developers**: Begin with the [Architecture](./developer-guide/architecture.md) and [Code Structure](./developer-guide/code-structure.md) guides.
 5. **Contributors**: Review the [Contributing](./developer-guide/contributing.md) guidelines.
+6. **Future Plans**: See the [Roadmap](./ROADMAP.md) for upcoming features and development priorities.
 
 ## Version Information
 
-This documentation applies to crules v0.1.0 and later. For documentation on previous versions, please refer to the appropriate release tags in the repository. 
+This documentation applies to crules version 1.0.0. For documentation on previous versions, please refer to the appropriate release tags in the repository. 

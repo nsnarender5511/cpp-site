@@ -1,7 +1,7 @@
 ---
-version: v0.1.0
-last_updated: 2023-03-29
-applies_to: crules v0.1.0+
+version: dev
+last_updated: 2023-07-13
+applies_to: crules (current development version)
 ---
 
 # Contributing to crules
@@ -155,9 +155,9 @@ feat(agent): add support for selection by index
 - Include version indicators at the top of each documentation file:
   ```markdown
   ---
-  version: v0.1.0
+  version: dev
   last_updated: YYYY-MM-DD
-  applies_to: crules v0.1.0+
+  applies_to: crules (current development version)
   ---
   ```
 - Include a table of contents for files longer than 100 lines
