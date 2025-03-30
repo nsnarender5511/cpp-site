@@ -4,12 +4,21 @@ import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
 import { FiGithub } from 'react-icons/fi';
 
+// Define types for floating elements
+interface FloatingElement {
+  delay: number;
+  duration: number;
+  x: [number, number];
+  y: [number, number];
+  rotate: [number, number];
+}
+
 export default function CTA(): ReactElement {
-  const ref = useRef(null);
+  const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
 
   // Floating elements for background
-  const floatingElements = [
+  const floatingElements: FloatingElement[] = [
     { delay: 0, duration: 5, x: [-10, 10], y: [-15, 5], rotate: [-5, 5] },
     { delay: 0.5, duration: 7, x: [5, -5], y: [10, -10], rotate: [3, -3] },
     { delay: 1, duration: 6, x: [-8, 8], y: [8, -8], rotate: [0, 0] },

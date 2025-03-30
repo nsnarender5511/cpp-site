@@ -3,8 +3,26 @@ import { motion, useInView, AnimatePresence } from 'framer-motion';
 import styles from './styles.module.css';
 import { FiCopy, FiCheck } from 'react-icons/fi';
 
+// Define types for our data
+interface CodeByPackageManager {
+  npm: string;
+  yarn: string;
+  pnpm: string;
+}
+
+interface InstallationStep {
+  number: number;
+  title: string;
+  description: string;
+  code: CodeByPackageManager;
+}
+
+interface CopiedStates {
+  [key: number]: boolean;
+}
+
 // Helper function to add syntax highlighting to code blocks
-const formatCodeWithSyntax = (code) => {
+const formatCodeWithSyntax = (code: string): string => {
   // Simple syntax highlighting for JavaScript
   const keywords = ['const', 'let', 'var', 'function', 'if', 'else', 'return', 'forEach', 'new'];
   const specialWords = ['console', 'log', 'crules'];
@@ -28,15 +46,15 @@ const formatCodeWithSyntax = (code) => {
     formattedCode = formattedCode.replace(regex, `<span style="color: #4EC9B0;">${word}</span>`);
   });
   
-  // Strings in green
+  // Strings in green - improved regex to handle multi-line strings better
   formattedCode = formattedCode.replace(
-    /(['"`])(.*?)\1/g, 
+    /(['"`])([\s\S]*?)(?:\1|$)/g, 
     match => `<span style="color: #CE9178;">${match}</span>`
   );
   
-  // Numbers in light yellow
+  // Numbers in light yellow - improved to also catch decimal numbers
   formattedCode = formattedCode.replace(
-    /\b(\d+)\b/g,
+    /\b(\d*\.?\d+)\b/g,
     match => `<span style="color: #B5CEA8;">${match}</span>`
   );
   
@@ -44,6 +62,12 @@ const formatCodeWithSyntax = (code) => {
   formattedCode = formattedCode.replace(
     /(\/\/.*)/g,
     match => `<span style="color: #6A9955;">${match}</span>`
+  );
+  
+  // Property keys in object literals in yellow
+  formattedCode = formattedCode.replace(
+    /(\s*)([a-zA-Z0-9_$]+)(\s*:)/g,
+    (match, space, propName, colon) => `${space}<span style="color: #9CDCFE;">${propName}</span>${colon}`
   );
   
   // Function calls in yellow
@@ -63,17 +87,23 @@ const formatCodeWithSyntax = (code) => {
     (match, dot, prop) => `${dot}<span style="color: #E8E8E8;">${prop}</span>`
   );
   
+  // Reserved words and operators in pinkish
+  ['type', 'params', 'operator', 'field'].forEach(word => {
+    const regex = new RegExp(`(["'])${word}(["'])`, 'g');
+    formattedCode = formattedCode.replace(regex, `$1<span style="color: #C586C0;">${word}</span>$2`);
+  });
+  
   return formattedCode;
 };
 
 export default function Installation(): ReactElement {
-  const ref = useRef(null);
+  const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
-  const [activeTab, setActiveTab] = useState('npm');
-  const [copiedStates, setCopiedStates] = useState({});
+  const [activeTab, setActiveTab] = useState<'npm' | 'yarn' | 'pnpm'>('npm');
+  const [copiedStates, setCopiedStates] = useState<CopiedStates>({});
 
   // Installation steps
-  const steps = [
+  const steps: InstallationStep[] = [
     {
       number: 1,
       title: 'Installation',
@@ -201,7 +231,7 @@ results.actions.forEach(action => {
   ];
 
   // Handle copy to clipboard
-  const copyToClipboard = (text, stepNumber) => {
+  const copyToClipboard = (text: string, stepNumber: number): void => {
     navigator.clipboard.writeText(text).then(() => {
       setCopiedStates(prev => ({
         ...prev,
