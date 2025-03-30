@@ -1,0 +1,76 @@
+/**
+ * Standardized color palette for CRules website
+ * This file contains CSS variables using the specified color palette
+ */
+
+:root {
+  /* Primary palette */
+  --color-cream: #FEF9E1;
+  --color-tan: #E5D0AC;
+  --color-red: #A31D1D;
+  --color-burgundy: #6D2323;
+  
+  /* Neutral shades */
+  --color-white: #FFFFFF;
+  --color-light-gray: #F8F8F8;
+  --color-gray: #EBEBEB;
+  --color-medium-gray: #C4C4C4;
+  --color-dark-gray: #666666;
+  --color-darker-gray: #333333;
+  --color-black: #111111;
+  
+  /* Semantic colors */
+  --color-success: #2E7D32;
+  --color-warning: #ED6C02;
+  --color-error: #D32F2F;
+  --color-info: #0288D1;
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, var(--color-red) 0%, var(--color-burgundy) 100%);
+  --gradient-light: linear-gradient(135deg, var(--color-cream) 0%, var(--color-tan) 100%);
+  
+  /* Docusaurus Infima overrides */
+  --ifm-color-primary: var(--color-red);
+  --ifm-color-primary-dark: var(--color-burgundy);
+  --ifm-color-primary-darker: #5A1E1E;
+  --ifm-color-primary-darkest: #471818;
+  --ifm-color-primary-light: #B92222;
+  --ifm-color-primary-lighter: #C93939;
+  --ifm-color-primary-lightest: #D45252;
+  --ifm-background-color: var(--color-cream);
+  --ifm-navbar-background-color: var(--color-cream);
+  --ifm-footer-background-color: var(--color-burgundy);
+  
+  /* Component-specific colors */
+  --card-background: var(--color-white);
+  --card-shadow: rgba(109, 35, 35, 0.08);
+  --card-shadow-hover: rgba(109, 35, 35, 0.15);
+  
+  /* Text colors */
+  --text-primary: var(--color-burgundy);
+  --text-secondary: #8D4A4A;
+  --text-light: var(--color-cream);
+}
+
+/* Dark mode overrides */
+[data-theme='dark'] {
+  --ifm-color-primary: #B92222;
+  --ifm-color-primary-dark: var(--color-red);
+  --ifm-color-primary-darker: #8D1A1A;
+  --ifm-color-primary-darkest: var(--color-burgundy);
+  --ifm-color-primary-light: #D45252;
+  --ifm-color-primary-lighter: #DC7373;
+  --ifm-color-primary-lightest: #E49494;
+  --ifm-background-color: #1E1515;
+  --ifm-background-surface-color: #2D1E1E;
+  
+  /* Component-specific dark mode colors */
+  --card-background: #2D1E1E;
+  --card-shadow: rgba(0, 0, 0, 0.2);
+  --card-shadow-hover: rgba(0, 0, 0, 0.3);
+  
+  /* Text colors in dark mode */
+  --text-primary: var(--color-tan);
+  --text-secondary: #D4B48C;
+  --text-light: var(--color-cream);
+} 
