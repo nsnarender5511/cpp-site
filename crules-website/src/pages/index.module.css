@@ -1,0 +1,1127 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+/**
+ * Homepage Styles
+ */
+
+/* Hero Section */
+.heroBanner {
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(to right, #f6f8fa, #e6f1ff);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #0066cc, #0099ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #444;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Features section */
+.features {
+  padding: 5rem 0;
+  background-color: #fff;
+}
+
+.featuresTitle {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.featureCard {
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background-color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.featureIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.featureCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.featureCard p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Description section */
+.descriptionSection {
+  padding: 5rem 0;
+  background-color: #f6f8fa;
+}
+
+.descriptionContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.descriptionContent h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+  text-align: center;
+}
+
+.descriptionContent p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+/* Demo section */
+.demoSection {
+  padding: 5rem 0;
+  background: linear-gradient(to bottom right, #f8f9fa, #e6f1ff);
+  position: relative;
+}
+
+.demoSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(0, 102, 204, 0.3), transparent);
+}
+
+.demoContainer {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+}
+
+.demoHeader {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+.demoHeader h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.demoHeader p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.codeExampleWrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.codeExampleWrapper::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  left: -20px;
+  right: -20px;
+  background: rgba(0, 102, 204, 0.03);
+  border-radius: 10px;
+  z-index: -1;
+}
+
+.codeExample {
+  background-color: #1e1e1e;
+  color: #f8f8f8;
+  border-radius: 8px;
+  padding: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.codeExample pre {
+  margin: 0;
+  overflow-x: auto;
+}
+
+.codeExample code {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* CTA section */
+.ctaSection {
+  padding: 5rem 0;
+  background-color: #fff;
+  text-align: center;
+}
+
+.ctaContent {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.ctaContent h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.ctaContent p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.ctaButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .featureGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .ctaButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Hero Container */
+.heroContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+/* Hero Content Area */
+.heroContent {
+  max-width: 600px;
+  flex: 1 1 50%;
+}
+
+/* Hero Title Animations */
+.heroTitle {
+  font-size: 4rem;
+  font-weight: 800;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(45deg, 
+    var(--ifm-color-primary-darker) 30%, 
+    var(--ifm-color-primary-darkest) 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.heroTitleVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero Subtitle Animations */
+.heroSubtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition-delay: 0.2s;
+  color: var(--ifm-color-emphasis-800);
+  line-height: 1.6;
+}
+
+.heroSubtitleVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero Buttons Animations */
+.buttonsVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Button Styles */
+.getStartedButton {
+  background: var(--ifm-color-primary-dark);
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.getStartedButton:hover {
+  background: var(--ifm-color-primary-darker);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.secondaryButton {
+  background: white;
+  color: var(--ifm-color-primary-dark);
+  border: 1px solid var(--ifm-color-primary-light);
+  transition: all 0.3s ease;
+}
+
+.secondaryButton:hover {
+  background: var(--ifm-color-primary-lightest);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero Animation */
+.heroAnimation {
+  flex: 1 1 50%;
+  position: relative;
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+  transition-delay: 0.3s;
+}
+
+.heroAnimationVisible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.heroAnimationInner {
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+
+.heroImageContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+
+/* Animated circles */
+.circle1, .circle2, .circle3 {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--ifm-color-primary-light) 0%, var(--ifm-color-primary) 100%);
+  opacity: 0.2;
+  animation: pulse 8s infinite ease-in-out;
+}
+
+.circle1 {
+  width: 200px;
+  height: 200px;
+  top: 10%;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.circle2 {
+  width: 160px;
+  height: 160px;
+  top: 40%;
+  right: 10%;
+  animation-delay: 1s;
+}
+
+.circle3 {
+  width: 120px;
+  height: 120px;
+  bottom: 15%;
+  left: 30%;
+  animation-delay: 2s;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.3;
+  }
+}
+
+/* Hero SVG Animation */
+.heroSvg {
+  width: 100%;
+  height: 100%;
+}
+
+.ruleRect {
+  fill: white;
+  stroke: var(--ifm-color-primary);
+  stroke-width: 2;
+  filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.ruleContent {
+  fill: var(--ifm-color-emphasis-200);
+}
+
+.ruleIndicator {
+  fill: var(--ifm-color-success);
+}
+
+/* Animated groups */
+.ruleGroup1, .ruleGroup2, .ruleGroup3 {
+  animation: slideIn 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.ruleGroup1 {
+  animation-delay: 0.5s;
+}
+
+.ruleGroup2 {
+  animation-delay: 0.7s;
+}
+
+.ruleGroup3 {
+  animation-delay: 0.9s;
+}
+
+.triangleShape {
+  fill: var(--ifm-color-primary-lighter);
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out 1.2s forwards;
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Wave decoration */
+.heroWave {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 1;
+}
+
+.heroWave svg {
+  display: block;
+  width: 100%;
+  height: 70px;
+  transform: rotateY(180deg);
+}
+
+.heroWave svg path {
+  fill: var(--ifm-background-color);
+}
+
+/* Features Highlight Section */
+.featuresHighlight {
+  padding: 4rem 0;
+}
+
+.featuresContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.featuresContainerVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.featureCard {
+  background: var(--ifm-color-emphasis-0);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  text-align: center;
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.featureCardVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.featureCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-color: var(--ifm-color-primary-lighter);
+}
+
+.featureIcon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ifm-color-primary-lightest);
+  border-radius: 50%;
+}
+
+.featureIcon svg {
+  fill: none;
+  stroke: var(--ifm-color-primary);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.featureCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--ifm-color-primary-darker);
+}
+
+.featureCard p {
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.6;
+}
+
+/* Description Section */
+.descriptionContainer {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.descriptionContainerVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.descriptionText {
+  flex: 1 1 50%;
+}
+
+.descriptionText h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(45deg, var(--ifm-color-primary) 30%, var(--ifm-color-primary-darker) 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.descriptionText p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.benefitsList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.benefitItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  color: var(--ifm-color-emphasis-900);
+}
+
+.checkmark {
+  color: var(--ifm-color-success);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.descriptionButtons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.primaryButton {
+  background: var(--ifm-color-primary);
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.primaryButton:hover {
+  background: var(--ifm-color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.outlineButton {
+  background: transparent;
+  color: var(--ifm-color-primary);
+  border: 1px solid var(--ifm-color-primary);
+  transition: all 0.3s ease;
+}
+
+.outlineButton:hover {
+  background: var(--ifm-color-primary-lightest);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.descriptionImage {
+  flex: 1 1 50%;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
+}
+
+.imagePulse {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: rgba(var(--ifm-color-primary-rgb), 0.2);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  animation: pulsate 2s infinite ease-in-out;
+}
+
+@keyframes pulsate {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+}
+
+.flowDiagram {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.diagramNode {
+  fill: white;
+  stroke: var(--ifm-color-primary);
+  stroke-width: 2;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.diagramText {
+  fill: var(--ifm-color-emphasis-900);
+  font-size: 16px;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  font-weight: 500;
+}
+
+.diagramArrow {
+  stroke: var(--ifm-color-primary);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.diagramArrowHead {
+  stroke: var(--ifm-color-primary);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.diagramCircle {
+  fill: var(--ifm-color-primary-lightest);
+  stroke: var(--ifm-color-primary-light);
+  stroke-width: 2;
+}
+
+.darkModeImage .diagramNode {
+  fill: var(--ifm-color-emphasis-200);
+}
+
+.darkModeImage .diagramText {
+  fill: var(--ifm-color-emphasis-800);
+}
+
+/* Demo Section */
+.demoSection {
+  padding: 5rem 0;
+  background: linear-gradient(to bottom, var(--ifm-color-emphasis-100), #fff);
+  position: relative;
+}
+
+.demoSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--ifm-color-primary-lightest), var(--ifm-color-primary-light), var(--ifm-color-primary-lightest));
+}
+
+.demoContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  position: relative;
+}
+
+.demoContainerVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.demoHeader {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.demoHeader h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(to right, var(--ifm-color-primary), var(--ifm-color-primary-dark));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.demoHeader p {
+  font-size: 1.25rem;
+  color: var(--ifm-color-emphasis-700);
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.codeExampleWrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.codeExampleWrapper::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: -50px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, var(--ifm-color-primary-lightest) 0%, transparent 70%);
+  opacity: 0.5;
+  z-index: -1;
+  border-radius: 50%;
+}
+
+/* CTA Section */
+.ctaSection {
+  background: linear-gradient(135deg, var(--ifm-color-primary-darker) 0%, var(--ifm-color-primary-darkest) 100%);
+  padding: 5rem 0;
+  text-align: center;
+  color: white;
+  margin-top: 3rem;
+}
+
+.ctaContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.ctaContainerVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ctaSection h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.ctaSection p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.ctaButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.ctaButton {
+  background: white;
+  color: var(--ifm-color-primary-darker);
+  border: none;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.ctaButton:hover {
+  background: white;
+  color: var(--ifm-color-primary-darkest);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.ctaAltButton {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.ctaAltButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Main Container */
+.homeMain {
+  position: relative;
+  z-index: 2;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 996px) {
+  .heroContainer {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .heroContent {
+    max-width: 100%;
+    margin-bottom: 3rem;
+  }
+  
+  .heroTitle {
+    font-size: 3rem;
+  }
+  
+  .buttons {
+    justify-content: center;
+  }
+  
+  .heroAnimation {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+  
+  .heroAnimationInner {
+    height: 300px;
+  }
+  
+  .descriptionContainer {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  
+  .descriptionText {
+    text-align: center;
+  }
+  
+  .descriptionButtons {
+    justify-content: center;
+  }
+  
+  .benefitsList {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 2rem auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .heroBanner {
+    padding: 3rem 0 5rem;
+  }
+  
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+  
+  .heroSubtitle {
+    font-size: 1.2rem;
+  }
+  
+  .featuresContainer {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    padding: 1rem;
+  }
+  
+  .descriptionText h2,
+  .demoHeader h2,
+  .ctaSection h2 {
+    font-size: 2rem;
+  }
+  
+  .ctaButtons {
+    flex-direction: column;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .heroBanner {
+    padding: 2rem 0 4rem;
+  }
+  
+  .heroTitle {
+    font-size: 2rem;
+  }
+  
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+  
+  .buttons {
+    flex-direction: column;
+    max-width: 240px;
+    margin: 0 auto;
+  }
+  
+  .heroAnimation {
+    max-width: 100%;
+  }
+  
+  .heroAnimationInner {
+    height: 250px;
+  }
+  
+  .featuresContainer {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .demoSection {
+    padding: 3rem 0;
+  }
+
+  .demoHeader h2 {
+    font-size: 2rem;
+  }
+
+  .demoHeader p {
+    font-size: 1rem;
+  }
+
+  .codeExampleWrapper::before {
+    display: none;
+  }
+}
+
+.agentsSection {
+  padding: 5rem 0;
+  background: linear-gradient(to bottom, #fff, var(--ifm-color-emphasis-100));
+  position: relative;
+}
+
+.agentsContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  position: relative;
+}
+
+.agentsContainerVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.agentsHeader {
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.agentsHeader h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, var(--ifm-color-primary-darker), var(--ifm-color-primary-darkest));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.agentsHeader p {
+  font-size: 1.2rem;
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.6;
+}
+
+.agentsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.agentCard {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.agentCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.agentIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.agentCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--ifm-color-primary-dark);
+}
+
+.agentCard p {
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .agentsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .agentsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .agentCard h3 {
+    font-size: 1.2rem;
+  }
+  
+  .agentCard p {
+    font-size: 0.9rem;
+  }
+  
+  .agentIcon {
+    font-size: 2rem;
+  }
+}

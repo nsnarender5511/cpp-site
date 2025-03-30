@@ -1,0 +1,328 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  /* Modern Tech Theme */
+  --ifm-color-primary: #4D61FC;
+  --ifm-color-primary-dark: #3951FC;
+  --ifm-color-primary-darker: #2A44FC;
+  --ifm-color-primary-darkest: #0525F5;
+  --ifm-color-primary-light: #6171FC;
+  --ifm-color-primary-lighter: #7080FD;
+  --ifm-color-primary-lightest: #9AA5FD;
+  
+  /* Accent colors */
+  --ifm-color-accent: #FF6B6B;
+  
+  /* Font settings */
+  --ifm-font-family-base: 'Source Sans Pro', system-ui, -apple-system, sans-serif;
+  --ifm-heading-font-family: 'Inter', sans-serif;
+  --ifm-font-family-monospace: 'JetBrains Mono', SFMono-Regular, monospace;
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.65;
+  
+  /* Code block highlighting */
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(77, 97, 252, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #6171FC;
+  --ifm-color-primary-dark: #4D61FC;
+  --ifm-color-primary-darker: #3951FC;
+  --ifm-color-primary-darkest: #2A44FC;
+  --ifm-color-primary-light: #7080FD;
+  --ifm-color-primary-lighter: #9AA5FD;
+  --ifm-color-primary-lightest: #BFC5FE;
+  --ifm-background-color: #0D1117;
+  --ifm-background-surface-color: #161B22;
+  --docusaurus-highlighted-code-line-bg: rgba(77, 97, 252, 0.3);
+}
+
+/* Custom component styling */
+.navbar {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.footer {
+  --ifm-footer-background-color: var(--ifm-background-surface-color);
+}
+
+/* Card styling */
+.card {
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Button styling */
+.button {
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.button--primary {
+  background: linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-dark) 100%);
+}
+
+.button--primary:hover {
+  filter: brightness(1.1);
+}
+
+/* Admonition styling */
+.alert {
+  border-radius: 8px;
+  border-left-width: 4px;
+  padding: 0.75rem 1rem;
+}
+
+.alert--info {
+  border-left-color: var(--ifm-color-primary);
+  background-color: rgba(77, 97, 252, 0.1);
+}
+
+.alert--warning {
+  border-left-color: #F59E0B;
+  background-color: rgba(245, 158, 11, 0.1);
+}
+
+.alert--success {
+  border-left-color: #10B981;
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+/* Documentation headings */
+.markdown h1, .markdown h2, .markdown h3 {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 600;
+}
+
+.markdown h1 {
+  font-size: 2.5rem;
+}
+
+.markdown h2 {
+  font-size: 2rem;
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+  padding-bottom: 0.5rem;
+}
+
+/* Table styling */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+table th {
+  background-color: var(--ifm-color-emphasis-100);
+  font-weight: 600;
+}
+
+table td, table th {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Code blocks */
+.codeBlockContainer {
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Sidebar */
+.menu {
+  font-family: var(--ifm-font-family-base);
+}
+
+.menu__link--active {
+  font-weight: 600;
+  position: relative;
+}
+
+.menu__link--active:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: var(--ifm-color-primary);
+  border-radius: 0 2px 2px 0;
+}
+
+/* Navbar brand */
+.navbar__brand {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 700;
+}
+
+@media screen and (max-width: 996px) {
+  .markdown h1 {
+    font-size: 2rem;
+  }
+  
+  .markdown h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Code block styling */
+.prism-code {
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+pre[class*="language-"] {
+  overflow: auto;
+  border-radius: 8px;
+}
+
+/* Interactive API explorer styles */
+.api-explorer {
+  background: var(--ifm-card-background-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.api-explorer-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.api-explorer-method {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-weight: bold;
+  margin-right: 0.5rem;
+  font-size: 0.9rem;
+  min-width: 60px;
+  text-align: center;
+}
+
+.api-explorer-method.get {
+  background-color: rgba(97, 175, 254, 0.1);
+  color: #61affe;
+}
+
+.api-explorer-method.post {
+  background-color: rgba(73, 204, 144, 0.1);
+  color: #49cc90;
+}
+
+.api-explorer-method.put {
+  background-color: rgba(252, 161, 48, 0.1);
+  color: #fca130;
+}
+
+.api-explorer-method.delete {
+  background-color: rgba(249, 62, 62, 0.1);
+  color: #f93e3e;
+}
+
+.api-explorer-path {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 1rem;
+}
+
+.api-explorer-content {
+  background: var(--ifm-pre-background);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+/* Custom button styles */
+.button--primary-gradient {
+  background: linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-dark) 100%);
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.button--primary-gradient:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  color: white;
+}
+
+/* Timeline component */
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+  margin-left: 1rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--ifm-color-emphasis-300);
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2.25rem;
+  top: 0.25rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: var(--ifm-color-primary);
+}
+
+.timeline-title {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.timeline-content {
+  margin-top: 0.5rem;
+}
