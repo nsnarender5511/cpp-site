@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiLock, FiRefreshCw, FiZap, FiServer, FiCpu, FiAward, FiBox, FiCode, FiGitBranch } from 'react-icons/fi';
+import { FiZap, FiUsers, FiBox, FiCpu, FiGitBranch, FiCode } from 'react-icons/fi';
 
 export interface Feature {
   title: string;
@@ -9,46 +9,42 @@ export interface Feature {
 
 export const features: Feature[] = [
   {
-    title: 'Centralized Rules Management',
-    description: 'Maintain all your AI agent rules in one main location for consistency across projects',
-    iconName: 'FiServer'
-  },
-  {
-    title: 'Automatic Synchronization',
-    description: 'Ensure all projects have the latest versions of your rules with simple sync commands',
-    iconName: 'FiRefreshCw'
-  },
-  {
-    title: 'Agent Ecosystem',
-    description: 'Work with specialized AI agents for different tasks from planning to implementation',
-    iconName: 'FiCpu'
-  },
-  {
-    title: 'Secure Collaboration',
-    description: 'Share rules with team members easily while maintaining proper access control',
-    iconName: 'FiLock'
-  },
-  {
-    title: 'High Performance',
-    description: 'Optimized for speed with minimal overhead in development environments',
+    title: 'Intelligent Automation',
+    description: 'Leverage AI-powered agents to automate development tasks and workflows',
     iconName: 'FiZap'
   },
   {
-    title: 'Extensibility',
-    description: 'Create custom agents by adding your own .mdc files in the rules directory',
+    title: 'Collaborative Development',
+    description: 'Work seamlessly with AI agents that understand your codebase and development needs',
+    iconName: 'FiUsers'
+  },
+  {
+    title: 'Modular Architecture',
+    description: 'Extensible plugin system for custom agents and workflows',
+    iconName: 'FiBox'
+  },
+  {
+    title: 'Smart Processing',
+    description: 'Efficient task handling with intelligent work distribution',
+    iconName: 'FiCpu'
+  },
+  {
+    title: 'Version Control Integration',
+    description: 'Native Git support for seamless code management',
+    iconName: 'FiGitBranch'
+  },
+  {
+    title: 'Code Generation',
+    description: 'AI-assisted code generation and optimization',
     iconName: 'FiCode'
   }
 ];
 
-// Map of icon components for rendering
 export const iconMap = {
-  FiServer,
-  FiRefreshCw,
-  FiAward,
-  FiLock,
   FiZap,
-  FiCpu,
+  FiUsers, 
   FiBox,
-  FiCode,
-  FiGitBranch
-}; 
+  FiCpu,
+  FiGitBranch,
+  FiCode
+};

@@ -1,6 +1,5 @@
 export const codeExampleTabs = [
   {
-    label: 'CLI',
     value: 'cli',
     content: `# Initialize rules in the current project
 crules init
@@ -24,45 +23,51 @@ crules merge
 crules list
 
 # Clean up non-existent projects
-crules clean`
+crules clean`,
+    label: 'CLI'
   },
   {
-    label: 'JavaScript',
     value: 'javascript',
-    content: `// Define a simple discount eligibility rule
-const discountRule = {
+    content: `const discountRule = {
   name: 'discount_eligibility',
   conditions: [
-    { field: 'customer.totalPurchases', operator: 'greaterThan', value: 1000 },
-    { field: 'customer.loyaltyYears', operator: 'greaterThan', value: 2 }
+    {
+      field: 'customer.totalPurchases',
+      value: 1000,
+      operator: 'greaterThan'
+    },
+    {
+      field: 'customer.loyaltyYears',
+      value: 2,
+      operator: 'greaterThan'
+    }
   ],
   actions: [
-    { type: 'applyDiscount', params: { percentage: 15 } }
+    {
+      type: 'applyDiscount',
+      params: {
+        percentage: 15
+      }
+    }
   ]
 };
 
-// Add the rule to your ruleset
-crules.addRule(discountRule);
-
-// Customer data
 const customer = {
   id: 'cust-123',
   totalPurchases: 1500,
   loyaltyYears: 3
 };
 
-// Evaluate rules
 const results = crules.evaluate(customer);
 
-// Handle actions
 results.actions.forEach(action => {
   if (action.type === 'applyDiscount') {
-    console.log(\`Applying \${action.params.percentage}% discount\`);
+    console.log(\`Applying ${action.params.percentage}% discount\`);
   }
-});`
+});`,
+    label: 'JavaScript'
   },
   {
-    label: 'Agents',
     value: 'agents',
     content: `# Using the Technical Wizard agent
 @wizard.mdc I need help designing a new API endpoint
@@ -83,6 +88,7 @@ results.actions.forEach(action => {
 @documentation-agent.mdc Create API documentation for the auth endpoints
 
 # Using the Code Reviewer agent
-@code-reviewer.mdc Review the authentication service implementation`
+@code-reviewer.mdc Review the authentication service implementation`,
+    label: 'Agents'
   }
-]; 
+];
