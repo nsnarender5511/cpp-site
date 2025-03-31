@@ -1,12 +1,12 @@
 ---
-version: dev
-last_updated: 2023-07-13
-applies_to: crules (current development version)
+version: v0.1.0
+last_updated: 2023-03-29
+applies_to: cursor++ v0.1.0+
 ---
 
 # Code of Conduct
 
-> 🤝 Guidelines for participation in the crules community.
+> 🤝 Guidelines for participation in the cursor++ community.
 
 ## Our Pledge
 

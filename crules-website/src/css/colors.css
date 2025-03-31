@@ -5,19 +5,19 @@
 
 :root {
   /* Primary palette */
-  --color-cream: #FEF9E1;
-  --color-tan: #E5D0AC;
-  --color-red: #A31D1D;
-  --color-burgundy: #6D2323;
+  --color-light: #F5F8FF;
+  --color-blue: #4F6BF8;
+  --color-purple: #6D5ACD;
+  --color-dark-blue: #1A237E;
   
   /* Neutral shades */
   --color-white: #FFFFFF;
-  --color-light-gray: #F8F8F8;
-  --color-gray: #EBEBEB;
-  --color-medium-gray: #C4C4C4;
-  --color-dark-gray: #666666;
-  --color-darker-gray: #333333;
-  --color-black: #111111;
+  --color-light-gray: #F8F9FC;
+  --color-gray: #EBEDF5;
+  --color-medium-gray: #C4C8D8;
+  --color-dark-gray: #666A7A;
+  --color-darker-gray: #333646;
+  --color-black: #111222;
   
   /* Semantic colors */
   --color-success: #2E7D32;
@@ -26,51 +26,51 @@
   --color-info: #0288D1;
   
   /* Gradients */
-  --gradient-primary: linear-gradient(135deg, var(--color-red) 0%, var(--color-burgundy) 100%);
-  --gradient-light: linear-gradient(135deg, var(--color-cream) 0%, var(--color-tan) 100%);
+  --gradient-primary: linear-gradient(135deg, var(--color-blue) 0%, var(--color-purple) 100%);
+  --gradient-light: linear-gradient(135deg, var(--color-light) 0%, var(--color-light-gray) 100%);
   
   /* Docusaurus Infima overrides */
-  --ifm-color-primary: var(--color-red);
-  --ifm-color-primary-dark: var(--color-burgundy);
-  --ifm-color-primary-darker: #5A1E1E;
-  --ifm-color-primary-darkest: #471818;
-  --ifm-color-primary-light: #B92222;
-  --ifm-color-primary-lighter: #C93939;
-  --ifm-color-primary-lightest: #D45252;
-  --ifm-background-color: var(--color-cream);
-  --ifm-navbar-background-color: var(--color-cream);
-  --ifm-footer-background-color: var(--color-burgundy);
+  --ifm-color-primary: var(--color-blue);
+  --ifm-color-primary-dark: var(--color-dark-blue);
+  --ifm-color-primary-darker: #141c64;
+  --ifm-color-primary-darkest: #0f154a;
+  --ifm-color-primary-light: #6979f9;
+  --ifm-color-primary-lighter: #8895fa;
+  --ifm-color-primary-lightest: #a7b0fb;
+  --ifm-background-color: var(--color-light);
+  --ifm-navbar-background-color: var(--color-white);
+  --ifm-footer-background-color: var(--color-dark-blue);
   
   /* Component-specific colors */
   --card-background: var(--color-white);
-  --card-shadow: rgba(109, 35, 35, 0.08);
-  --card-shadow-hover: rgba(109, 35, 35, 0.15);
+  --card-shadow: rgba(26, 35, 126, 0.08);
+  --card-shadow-hover: rgba(26, 35, 126, 0.15);
   
   /* Text colors */
-  --text-primary: var(--color-burgundy);
-  --text-secondary: #8D4A4A;
-  --text-light: var(--color-cream);
+  --text-primary: var(--color-dark-blue);
+  --text-secondary: #4a568d;
+  --text-light: var(--color-light);
 }
 
 /* Dark mode overrides */
 [data-theme='dark'] {
-  --ifm-color-primary: #B92222;
-  --ifm-color-primary-dark: var(--color-red);
-  --ifm-color-primary-darker: #8D1A1A;
-  --ifm-color-primary-darkest: var(--color-burgundy);
-  --ifm-color-primary-light: #D45252;
-  --ifm-color-primary-lighter: #DC7373;
-  --ifm-color-primary-lightest: #E49494;
-  --ifm-background-color: #1E1515;
-  --ifm-background-surface-color: #2D1E1E;
+  --ifm-color-primary: #6979f9;
+  --ifm-color-primary-dark: var(--color-blue);
+  --ifm-color-primary-darker: #3a57f7;
+  --ifm-color-primary-darkest: var(--color-dark-blue);
+  --ifm-color-primary-light: #8895fa;
+  --ifm-color-primary-lighter: #a7b0fb;
+  --ifm-color-primary-lightest: #c6ccfc;
+  --ifm-background-color: #151825;
+  --ifm-background-surface-color: #1e2235;
   
   /* Component-specific dark mode colors */
-  --card-background: #2D1E1E;
+  --card-background: #1e2235;
   --card-shadow: rgba(0, 0, 0, 0.2);
   --card-shadow-hover: rgba(0, 0, 0, 0.3);
   
   /* Text colors in dark mode */
-  --text-primary: var(--color-tan);
-  --text-secondary: #D4B48C;
-  --text-light: var(--color-cream);
+  --text-primary: var(--color-light);
+  --text-secondary: #b4bae0;
+  --text-light: var(--color-white);
 } 

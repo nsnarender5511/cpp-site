@@ -5,20 +5,20 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'CRules Documentation',
-  tagline: 'Documentation for the CRules system',
+  title: 'cursor++ Documentation',
+  tagline: 'Agent-based AI development for Cursor IDE',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://crules-docs.example.com',
+  url: 'https://cursor-plus-plus.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'crules-org', // Updated GitHub org name
-  projectName: 'crules-website', // Repo name
+  organizationName: 'cursor-ai', // Updated GitHub org name
+  projectName: 'cursor-plus-plus', // Repo name
 
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
@@ -34,7 +34,7 @@ const config: Config = {
   // Add custom stylesheets
   stylesheets: [
     {
-      href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Sans+Pro:wght@400;600&family=JetBrains+Mono&display=swap',
+      href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap',
       type: 'text/css',
     },
   ],
@@ -55,19 +55,15 @@ const config: Config = {
           },
           {
             from: '/docs/intro',
-            to: '/docs/README',
+            to: '/docs/',
           },
           {
             from: '/docs/examples/index',
-            to: '/docs/examples/README',
-          },
-          {
-            from: '/docs/api-reference',
-            to: '/docs/api-reference/README',
+            to: '/docs/examples/basic-usage',
           },
           {
             from: '/docs/api',
-            to: '/docs/api-reference/README',
+            to: '/docs/api-reference',
           },
         ],
       },
@@ -82,7 +78,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           // Updated GitHub repository links
           editUrl:
-            'https://github.com/crules-org/crules-website/edit/main/',
+            'https://github.com/cursor-ai/cursor-plus-plus/edit/main/',
         },
         blog: {
           showReadingTime: true,
@@ -92,7 +88,7 @@ const config: Config = {
           },
           // Updated GitHub repository links
           editUrl:
-            'https://github.com/crules-org/crules-website/edit/main/',
+            'https://github.com/cursor-ai/cursor-plus-plus/edit/main/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -107,18 +103,19 @@ const config: Config = {
 
   themeConfig: {
     // Updated project's social card with correct image
-    image: 'img/crules-social-card.jpg',
+    image: 'img/cursor-plus-plus-social-card.jpg',
     colorMode: {
       defaultMode: 'light',
       disableSwitch: false,
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'CRules',
+      title: 'cursor++',
       logo: {
-        alt: 'CRules Logo',
+        alt: 'cursor++ Logo',
         src: 'img/logo.svg',
       },
+      style: 'primary',
       items: [
         {
           type: 'docSidebar',
@@ -126,10 +123,13 @@ const config: Config = {
           position: 'left',
           label: 'Documentation',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
-        {to: '/api-reference', label: 'API Reference', position: 'left'},
         {
-          href: 'https://github.com/crules-org/crules-website',
+          to: '/blog',
+          label: 'Blog',
+          position: 'left'
+        },
+        {
+          href: 'https://github.com/cursor-ai/cursor-plus-plus',
           label: 'GitHub',
           position: 'right',
         },
@@ -139,40 +139,15 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Documentation',
+          title: 'Docs',
           items: [
             {
               label: 'Getting Started',
               to: '/docs/user-guide/getting-started',
             },
             {
-              label: 'User Guide',
-              to: '/docs/user-guide',
-            },
-            {
-              label: 'Developer Guide',
-              to: '/docs/developer-guide',
-            },
-            {
               label: 'API Reference',
-              to: '/docs/api-reference/README',
-            },
-          ],
-        },
-        {
-          title: 'Resources',
-          items: [
-            {
-              label: 'Examples',
-              to: '/docs/examples/README',
-            },
-            {
-              label: 'API Explorer',
-              to: '/api-reference',
-            },
-            {
-              label: 'Documentation Map',
-              to: '/docs/documentation-map',
+              to: '/docs/api-reference',
             },
           ],
         },
@@ -180,16 +155,12 @@ const config: Config = {
           title: 'Community',
           items: [
             {
-              label: 'GitHub Discussions',
-              href: 'https://github.com/crules-org/crules-website/discussions',
+              label: 'Discord',
+              href: 'https://discord.gg/cursor-plus-plus',
             },
             {
-              label: 'Feature Requests',
-              href: 'https://github.com/crules-org/crules-website/issues',
-            },
-            {
-              label: 'Contributing',
-              to: '/docs/developer-guide/contributing',
+              label: 'Twitter',
+              href: 'https://twitter.com/cursor_plus_plus',
             },
           ],
         },
@@ -202,27 +173,23 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/crules-org/crules-website',
-            },
-            {
-              label: 'Roadmap',
-              to: '/docs/ROADMAP',
+              href: 'https://github.com/cursor-ai/cursor-plus-plus',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} CRules Project. Built with Docusaurus.`,
-    },
-    prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
-      additionalLanguages: ['bash', 'diff', 'json', 'yaml'],
+      copyright: `Copyright © ${new Date().getFullYear()} cursor++. Built with Docusaurus.`,
     },
     docs: {
       sidebar: {
         hideable: true,
         autoCollapseCategories: true,
       },
+    },
+    prism: {
+      theme: prismThemes.vsDark,
+      darkTheme: prismThemes.dracula,
+      additionalLanguages: ['bash', 'typescript', 'yaml'],
     },
   } satisfies Preset.ThemeConfig,
 };

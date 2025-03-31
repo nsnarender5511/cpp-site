@@ -1,161 +1,91 @@
-import React, { useRef, useState, type ReactElement } from 'react';
-import { motion, useInView, AnimatePresence } from 'framer-motion';
+import React from 'react';
+import clsx from 'clsx';
 import styles from './styles.module.css';
-import { FiCopy, FiCheck } from 'react-icons/fi';
 
-// Define types for our data
-interface InstallationStep {
-  number: number;
+type InstallationStep = {
   title: string;
   description: string;
-  code: string;
-}
-
-interface CopiedStates {
-  [key: number]: boolean;
-}
-
-// Function to render code with highlighted commands
-const CodeBlock = ({ code }: { code: string }) => {
-  // Split the code by lines
-  const lines = code.split('\n');
-  
-  // Function to highlight commands in a line
-  const highlightCommands = (line: string) => {
-    const commandPattern = /\b(brew|tap|install|crules|init|--version|nsnarender5511)\b/g;
-    
-    // If line starts with #, it's a comment
-    if (line.trim().startsWith('#')) {
-      return <span className={styles.comment}>{line}</span>;
-    }
-    
-    // Find all commands in the line
-    const parts = [];
-    let lastIndex = 0;
-    let match;
-    
-    while ((match = commandPattern.exec(line)) !== null) {
-      // Add text before the match
-      if (match.index > lastIndex) {
-        parts.push(line.substring(lastIndex, match.index));
-      }
-      
-      // Add the command with highlight
-      parts.push(
-        <span key={match.index} className={styles.command}>
-          {match[0]}
-        </span>
-      );
-      
-      lastIndex = match.index + match[0].length;
-    }
-    
-    // Add remaining text
-    if (lastIndex < line.length) {
-      parts.push(line.substring(lastIndex));
-    }
-    
-    return <>{parts.length > 0 ? parts : line}</>;
-  };
-  
-  return (
-    <pre className={styles.codeBlock}>
-      <code>
-        {lines.map((line, i) => (
-          <React.Fragment key={i}>
-            {highlightCommands(line)}
-            {i < lines.length - 1 && <br />}
-          </React.Fragment>
-        ))}
-      </code>
-    </pre>
-  );
+  command?: string;
 };
 
-export default function Installation(): ReactElement {
-  const ref = useRef<HTMLElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
-  const [copiedStates, setCopiedStates] = useState<CopiedStates>({});
+const INSTALLATION_STEPS: InstallationStep[] = [
+  {
+    title: 'Installation',
+    description: 'Install the cursor++ CLI using npm:',
+    command: 'npm install -g cursor++'
+  },
+  {
+    title: 'Initialize',
+    description: 'Create a new project or initialize in an existing one:',
+    command: 'cursor++ init'
+  },
+  {
+    title: 'Configure',
+    description: 'Edit your .cursor/rules directory to define your custom agents.',
+  },
+  {
+    title: 'Run',
+    description: 'Activate an agent to assist your development:',
+    command: 'cursor++ agent select'
+  }
+];
 
-  // Installation steps
-  const steps: InstallationStep[] = [
-    {
-      number: 1,
-      title: 'Installation',
-      description: 'Install the crules tool using Homebrew on macOS and Linux.',
-      code: 'brew tap nsnarender5511/tap\nbrew install crules'
-    },
-    {
-      number: 2,
-      title: 'Verifying Installation',
-      description: 'Confirm that crules is installed correctly on your system.',
-      code: 'crules --version\n\n# You should see output similar to:\n# crules v1.0.0'
-    },
-    {
-      number: 3,
-      title: 'First-Time Setup',
-      description: 'Set up your main rules location where all your rules will be stored and synced from.',
-      code: 'crules init'
-    }
-  ];
-
-  // Handle copy to clipboard
-  const copyToClipboard = (text: string, stepNumber: number): void => {
-    navigator.clipboard.writeText(text).then(() => {
-      setCopiedStates(prev => ({
-        ...prev,
-        [stepNumber]: true
-      }));
-      
-      // Reset copy state after 2 seconds
-      setTimeout(() => {
-        setCopiedStates(prev => ({
-          ...prev,
-          [stepNumber]: false
-        }));
-      }, 2000);
-    });
-  };
-
+export default function Installation(): React.ReactElement {
   return (
-    <section ref={ref} className={styles.installationSection} id="installation">
-      <div className={styles.container}>
-        <motion.h2 
-          className={styles.sectionTitle}
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
-        >
-          Installation & Usage
-        </motion.h2>
-
-        <div className={styles.stepsContainer}>
-          {steps.map((step, index) => (
-            <motion.div
-              key={step.number}
-              className={styles.installStep}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: 0.2 + (index * 0.1) }}
-            >
-              <div className={styles.stepNumber}>{step.number}</div>
-              <div className={styles.stepContent}>
-                <h3 className={styles.stepTitle}>{step.title}</h3>
-                <p className={styles.stepDescription}>{step.description}</p>
-                
-                <div className={styles.codeBlockWrapper}>
-                  <CodeBlock code={step.code} />
-                  <button 
-                    className={styles.copyButton}
-                    onClick={() => copyToClipboard(step.code, step.number)}
-                    title="Copy to clipboard"
-                  >
-                    {copiedStates[step.number] ? <FiCheck /> : <FiCopy />}
-                  </button>
+    <section className={clsx('section', styles.section)}>
+      <div className="container">
+        <div className={clsx('row', styles.row)}>
+          <div className={clsx('col col--6', styles.textColumn)}>
+            <h2 className={styles.sectionTitle}>Quick Start</h2>
+            <p className={styles.paragraph}>
+              Get started with cursor++ in just a few simple steps. Our CLI tool makes it
+              easy to set up and run custom AI agents for your Cursor IDE workflow.
+            </p>
+          </div>
+          
+          <div className={clsx('col col--6', styles.stepsColumn)}>
+            <div className={styles.stepsContainer}>
+              {INSTALLATION_STEPS.map((step, index) => (
+                <div key={index} className="installationStep">
+                  <div className="stepNumber">{index + 1}</div>
+                  <div className="stepContent">
+                    <div className="stepTitle">{step.title}</div>
+                    <p>{step.description}</p>
+                    
+                    {step.command && (
+                      <div className="codeBlockWrapper">
+                        <div className="codeBlockContent">
+                          <pre>
+                            <code>{step.command}</code>
+                          </pre>
+                          <button 
+                            className="copyButton"
+                            title="Copy to clipboard"
+                            aria-label="Copy to clipboard"
+                          >
+                            <svg 
+                              stroke="currentColor" 
+                              fill="none" 
+                              strokeWidth="2" 
+                              viewBox="0 0 24 24" 
+                              strokeLinecap="round" 
+                              strokeLinejoin="round" 
+                              height="1em" 
+                              width="1em" 
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                              <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

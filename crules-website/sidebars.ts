@@ -56,14 +56,12 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Examples',
       items: [
-        'examples/README',
         'examples/basic-usage',
         'examples/advanced-usage',
         'examples/agent-workflows',
       ],
     },
     'documentation-map',
-    'ROADMAP',
   ],
 };
 

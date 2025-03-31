@@ -1,10 +1,45 @@
-# Version API Reference
+---
+title: Version API
+description: Version information utilities
+applies_to: cursor++ v0.1.0+
+---
 
-> 🏷️ API reference for the version utilities of crules.
+# Version API
+
+The Version API provides utilities for accessing and comparing version information in cursor++.
+
+## Constants
+
+```go
+const (
+    // Version is the current version of the application
+    Version = "0.1.0"
+    
+    // MinCompatibleVersion is the minimum version that is compatible with the current version
+    MinCompatibleVersion = "0.1.0"
+)
+```
+
+## Functions
+
+### `CheckVersion`
+
+```go
+func CheckVersion(version string) (bool, error)
+```
+
+Checks if the provided version is compatible with the current version.
+
+**Parameters:**
+- `version` - The version to check
+
+**Returns:**
+- `bool` - True if the version is compatible
+- `error` - An error if the version check failed
 
 ## Overview
 
-The Version API provides utilities for managing and comparing version information in crules. It includes functions for parsing version strings, comparing versions, and checking compatibility.
+The Version API provides utilities for managing and comparing version information in cursor++. It includes functions for parsing version strings, comparing versions, and checking compatibility.
 
 This reference covers the most important types and functions in the Version package located at `/internal/version`.
 
@@ -93,6 +128,11 @@ Parses a version string into a `Version` struct. Panics if the version string is
 ```go
 version := version.MustParse("1.2.3")
 fmt.Printf("Version: %s\n", version.String())
+```
+
+Output:
+```
+1.2.3
 ```
 
 ## Version Comparison
@@ -342,7 +382,7 @@ Parses a constraint string into a `Constraint` struct.
 
 #### Parameters
 
-- `constraintString string`: The constraint string to parse (e.g., ">=1.2.3")
+- `constraintString string`: The constraint string to parse (e.g., `>=1.2.3`)
 
 #### Returns
 
@@ -352,7 +392,7 @@ Parses a constraint string into a `Constraint` struct.
 #### Example
 
 ```go
-constraint, err := version.ParseConstraint(">=1.2.3")
+constraint, err := version.ParseConstraint('>=1.2.3')
 if err != nil {
     return err
 }
@@ -386,7 +426,7 @@ Checks if a version satisfies a constraint.
 
 ```go
 v := version.MustParse("1.2.3")
-constraint, _ := version.ParseConstraint(">=1.0.0")
+constraint, _ := version.ParseConstraint('>=1.0.0')
 
 if v.Satisfies(constraint) {
     fmt.Println("Version satisfies constraint")
@@ -430,7 +470,7 @@ Parses a range string into a `Range`.
 #### Example
 
 ```go
-versionRange, err := version.ParseRange(">=1.0.0 <2.0.0")
+versionRange, err := version.ParseRange('>=1.0.0 <2.0.0')
 if err != nil {
     return err
 }
@@ -457,7 +497,7 @@ Checks if a version satisfies a range of constraints.
 
 ```go
 v := version.MustParse("1.2.3")
-versionRange, _ := version.ParseRange(">=1.0.0 <2.0.0")
+versionRange, _ := version.ParseRange('>=1.0.0 <2.0.0')
 
 if v.SatisfiesRange(versionRange) {
     fmt.Println("Version is in range")

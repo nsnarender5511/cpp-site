@@ -1,97 +1,75 @@
-import React, { useRef, type ReactElement } from 'react';
-import { motion, useInView } from 'framer-motion';
+import React from 'react';
+import clsx from 'clsx';
 import styles from './styles.module.css';
 
-// Import SVG Icons
-import { FiPackage, FiRefreshCw, FiUsers, FiLock, FiZap, FiCode } from 'react-icons/fi';
+type FeatureItem = {
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+};
 
-export default function Features(): ReactElement {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
+const FeatureList: FeatureItem[] = [
+  {
+    title: 'Specialized Agents',
+    description: 'Leverage purpose-built AI agents for specific tasks, from planning features to reviewing code.',
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+        <circle cx="9" cy="7" r="4"></circle>
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+      </svg>
+    ),
+  },
+  {
+    title: 'Agent Synchronization',
+    description: 'Keep your AI agents in sync across all projects for a consistent development experience.',
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 12a9 9 0 0 1-9 9"></path>
+        <path d="M9 3a9 9 0 0 1 9 9"></path>
+        <path d="M3 12a9 9 0 0 0 9 9"></path>
+        <path d="M15 3a9 9 0 0 0-9 9"></path>
+      </svg>
+    ),
+  },
+  {
+    title: 'Centralized Management',
+    description: 'Maintain your agents in one location and distribute them to all your projects.',
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+        <path d="M2 17l10 5 10-5"></path>
+        <path d="M2 12l10 5 10-5"></path>
+      </svg>
+    ),
+  },
+];
 
-  // Technical features data
-  const features = [
-    {
-      title: 'Centralized Rules Management',
-      description: 'Maintain all your AI agent rules in one main location for easy access and updates across all projects.',
-      icon: <FiPackage className={styles.featureIcon} />,
-    },
-    {
-      title: 'Automatic Synchronization',
-      description: 'Keep rules in sync across multiple projects with simple commands for syncing and merging changes.',
-      icon: <FiRefreshCw className={styles.featureIcon} />,
-    },
-    {
-      title: 'Agent Ecosystem',
-      description: 'Access specialized AI agents for different tasks, from planning and implementing features to fixing issues and documentation.',
-      icon: <FiUsers className={styles.featureIcon} />,
-    },
-    {
-      title: 'Secure Collaboration',
-      description: 'Share consistent agent rules with team members while maintaining control over your development experience.',
-      icon: <FiLock className={styles.featureIcon} />,
-    },
-    {
-      title: 'High Performance',
-      description: 'Optimized rule syncing and agent selection ensures a smooth and responsive development experience.',
-      icon: <FiZap className={styles.featureIcon} />,
-    },
-    {
-      title: 'Extensibility',
-      description: 'Create and add custom AI agents to suit your specific development workflow and project requirements.',
-      icon: <FiCode className={styles.featureIcon} />,
-    },
-  ];
-
+function Feature({title, description, icon}: FeatureItem) {
   return (
-    <section ref={ref} className={styles.featuresSection}>
-      <div className={styles.container}>
-        <motion.h2 
-          className={styles.sectionTitle}
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
-        >
-          Technical Features
-        </motion.h2>
+    <div className={clsx('col col--4')}>
+      <div className={styles.featureCard}>
+        <div className={styles.featureIcon}>
+          {icon}
+        </div>
+        <h3 className={styles.featureTitle}>{title}</h3>
+        <p className={styles.featureDescription}>{description}</p>
+      </div>
+    </div>
+  );
+}
 
-        <motion.div 
-          className={styles.featuresGrid}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          variants={{
-            hidden: {},
-            visible: {
-              transition: { staggerChildren: 0.1 }
-            }
-          }}
-        >
-          {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              className={styles.featureCard}
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: { 
-                  opacity: 1, 
-                  y: 0,
-                  transition: { duration: 0.6, ease: "easeOut" }
-                }
-              }}
-              whileHover={{ 
-                y: -8, 
-                boxShadow: "0 20px 30px rgba(77, 97, 252, 0.12)"
-              }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            >
-              <div className={styles.featureIconWrapper}>
-                {feature.icon}
-              </div>
-              <h3 className={styles.featureTitle}>{feature.title}</h3>
-              <p className={styles.featureDescription}>{feature.description}</p>
-            </motion.div>
+export default function Features(): React.ReactElement {
+  return (
+    <section className={clsx('section', styles.section)}>
+      <div className="container">
+        <h2 className={styles.sectionTitle}>Key Features</h2>
+        <div className="row">
+          {FeatureList.map((props, idx) => (
+            <Feature key={idx} {...props} />
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -11,22 +11,73 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  /* Font settings */
-  --ifm-font-family-base: 'Source Sans Pro', system-ui, -apple-system, sans-serif;
-  --ifm-heading-font-family: 'Inter', sans-serif;
-  --ifm-font-family-monospace: 'JetBrains Mono', SFMono-Regular, monospace;
-  --ifm-font-size-base: 16px;
-  --ifm-line-height-base: 1.65;
+  --ifm-color-primary: #6b46c1;
+  --ifm-color-primary-dark: #5f3eb0;
+  --ifm-color-primary-darker: #5a3ba6;
+  --ifm-color-primary-darkest: #4a3089;
+  --ifm-color-primary-light: #784dcb;
+  --ifm-color-primary-lighter: #7f55ce;
+  --ifm-color-primary-lightest: #9775d7;
   
-  /* Code block highlighting */
+  --ifm-color-secondary: #3182ce;
+  --ifm-color-secondary-dark: #2b74ba;
+  --ifm-color-secondary-darker: #296eaf;
+  --ifm-color-secondary-darkest: #215a90;
+  --ifm-color-secondary-light: #4490d6;
+  --ifm-color-secondary-lighter: #4f97d9;
+  --ifm-color-secondary-lightest: #71ace0;
+  
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(163, 29, 29, 0.1);
+  --ifm-font-family-base: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --ifm-font-family-monospace: 'Roboto Mono', SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  --ifm-heading-font-weight: 600;
   
-  /* Border radius */
+  --ifm-navbar-background-color: var(--ifm-color-primary);
+  --ifm-navbar-link-color: rgba(255, 255, 255, 0.9);
+  --ifm-navbar-link-hover-color: white;
+  
+  --ifm-footer-background-color: #1e2235;
+  --ifm-footer-link-color: rgba(255, 255, 255, 0.8);
+  --ifm-footer-link-hover-color: white;
+  
   --border-radius-sm: 4px;
   --border-radius-md: 8px;
   --border-radius-lg: 12px;
-  --border-radius-xl: 16px;
+  
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+  
+  --card-shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+html[data-theme='dark'] {
+  --ifm-color-primary: #9775d7;
+  --ifm-color-primary-dark: #8460d0;
+  --ifm-color-primary-darker: #7a54cc;
+  --ifm-color-primary-darkest: #6038b9;
+  --ifm-color-primary-light: #aa8ade;
+  --ifm-color-primary-lighter: #b496e2;
+  --ifm-color-primary-lightest: #d1bfec;
+  
+  --ifm-color-secondary: #71ace0;
+  --ifm-color-secondary-dark: #579dd9;
+  --ifm-color-secondary-darker: #4b95d6;
+  --ifm-color-secondary-darkest: #297bc5;
+  --ifm-color-secondary-light: #8bbbe7;
+  --ifm-color-secondary-lighter: #97c3ea;
+  --ifm-color-secondary-lightest: #bdd8f1;
+  
+  --ifm-background-color: #131524;
+  --ifm-background-surface-color: #1e2235;
+  
+  --ifm-navbar-background-color: var(--ifm-color-primary-darkest);
+  --ifm-footer-background-color: #131524;
+  
+  --card-shadow: rgba(0, 0, 0, 0.3);
 }
 
 /* Custom component styling */
@@ -35,13 +86,74 @@
   background-color: var(--ifm-navbar-background-color);
 }
 
+/* Custom navbar styling */
+.navbar__link {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.navbar__link:hover {
+  color: var(--color-blue);
+}
+
+.navbar__link--active {
+  color: var(--color-blue);
+  font-weight: 600;
+}
+
+.navbar__brand {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 700;
+  color: var(--color-blue);
+}
+
+/* Theme toggle icon colors */
+.navbar__items .clean-btn {
+  color: var(--text-primary);
+}
+
+.navbar__items .clean-btn:hover {
+  color: var(--color-blue);
+}
+
+/* Sidebar styling */
+.menu {
+  font-family: var(--ifm-font-family-base);
+}
+
+.menu__link {
+  color: var(--text-primary);
+}
+
+.menu__link:hover {
+  color: var(--color-blue);
+}
+
+.menu__link--active {
+  font-weight: 600;
+  position: relative;
+  color: var(--color-blue);
+}
+
+.menu__link--active:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: var(--color-blue);
+  border-radius: 0 2px 2px 0;
+}
+
+/* Footer styling */
 .footer {
-  --ifm-footer-background-color: var(--color-burgundy);
-  color: var(--color-cream);
+  --ifm-footer-background-color: var(--color-dark-blue);
+  color: var(--color-light);
 }
 
 .footer a {
-  color: var(--color-tan);
+  color: var(--color-light-gray);
 }
 
 .footer a:hover {
@@ -73,21 +185,23 @@
 .button--primary {
   background: var(--gradient-primary);
   border: none;
+  color: white;
 }
 
 .button--primary:hover {
   filter: brightness(1.1);
+  color: white;
 }
 
 .button--secondary {
-  background-color: var(--color-tan);
-  color: var(--color-burgundy);
+  background-color: var(--color-light);
+  color: var(--color-dark-blue);
   border: none;
 }
 
 .button--secondary:hover {
-  background-color: var(--color-cream);
-  color: var(--color-red);
+  background-color: var(--color-light-gray);
+  color: var(--color-blue);
 }
 
 /* Admonition styling */
@@ -131,7 +245,7 @@
 
 .markdown h2 {
   font-size: 2rem;
-  border-bottom: 1px solid var(--color-tan);
+  border-bottom: 1px solid var(--color-light);
   padding-bottom: var(--space-sm);
   margin-top: var(--space-xl);
   margin-bottom: var(--space-lg);
@@ -158,8 +272,8 @@ table {
 }
 
 table th {
-  background-color: var(--color-tan);
-  color: var(--color-burgundy);
+  background-color: var(--color-light);
+  color: var(--color-dark-blue);
   font-weight: 600;
 }
 
@@ -172,65 +286,103 @@ table tr:last-child td {
   border-bottom: none;
 }
 
-/* Code blocks */
-.codeBlockContainer {
-  border-radius: var(--border-radius-md);
-  box-shadow: 0 2px 4px var(--card-shadow);
-  margin-bottom: var(--space-lg);
-}
-
-/* Sidebar */
-.menu {
-  font-family: var(--ifm-font-family-base);
-}
-
-.menu__link--active {
-  font-weight: 600;
+/* Enhanced Code Block Styles */
+.codeBlockWrapper {
   position: relative;
-  color: var(--color-red);
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
 }
 
-.menu__link--active:before {
-  content: '';
+.codeBlockWrapper:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.codeBlockContent {
+  position: relative;
+  border-radius: 8px;
+  background-color: var(--ifm-code-background);
+}
+
+html[data-theme='light'] .codeBlockContent {
+  background-color: #1e2235;
+  color: #fff;
+}
+
+.copyButton {
   position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 4px;
-  background: var(--color-red);
-  border-radius: 0 2px 2px 0;
+  top: 12px;
+  right: 12px;
+  color: var(--ifm-color-primary-lighter);
+  background-color: rgba(0, 0, 0, 0.2);
+  border: none;
+  border-radius: 4px;
+  padding: 8px;
+  opacity: 0.7;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
 }
 
-/* Navbar brand */
-.navbar__brand {
-  font-family: var(--ifm-heading-font-family);
-  font-weight: 700;
-  color: var(--color-red);
+.copyButton:hover {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: var(--ifm-color-primary-lightest);
 }
 
-.navbar__link {
-  font-weight: 500;
-  color: var(--text-primary);
+.codeBlockLines {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  padding: 16px;
 }
 
-.navbar__link:hover {
-  color: var(--color-red);
+.installationStep {
+  display: flex;
+  margin-bottom: 2rem;
+  gap: 1rem;
+  align-items: flex-start;
 }
 
-@media screen and (max-width: 996px) {
-  .markdown h1 {
-    font-size: 2rem;
-    margin-bottom: var(--space-lg);
+.stepNumber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #6b46c1 0%, #3182ce 100%);
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-weight: bold;
+  flex-shrink: 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.stepContent {
+  flex: 1;
+}
+
+.stepTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-color-primary-dark);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .installationStep {
+    flex-direction: column;
   }
   
-  .markdown h2 {
-    font-size: 1.5rem;
-    margin-top: var(--space-lg);
-    margin-bottom: var(--space-md);
-  }
-  
-  .markdown h3 {
-    font-size: 1.25rem;
+  .stepNumber {
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -250,15 +402,21 @@ table tr:last-child td {
   animation: fadeIn 0.6s ease-out forwards;
 }
 
-/* Code block styling */
-.prism-code {
-  border-radius: var(--border-radius-md);
-  transition: all 0.2s ease;
-}
-
-pre[class*="language-"] {
-  overflow: auto;
-  border-radius: var(--border-radius-md);
+@media screen and (max-width: 996px) {
+  .markdown h1 {
+    font-size: 2rem;
+    margin-bottom: var(--space-lg);
+  }
+  
+  .markdown h2 {
+    font-size: 1.5rem;
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-md);
+  }
+  
+  .markdown h3 {
+    font-size: 1.25rem;
+  }
 }
 
 /* Interactive API explorer styles */
@@ -490,4 +648,74 @@ pre[class*="language-"] {
 
 [data-theme='dark'] [class*="dark-only"] {
   display: block !important;
+}
+
+/* Hero Banner Styles */
+.heroBanner {
+  padding: 6rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #6b46c1 0%, #3182ce 100%);
+  color: white;
+}
+
+.heroSubtitle {
+  margin-bottom: 2.5rem;
+  font-size: 1.25rem;
+  opacity: 0.9;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Features Section */
+.featureCard {
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  padding: 1.5rem;
+  height: 100%;
+}
+
+.featureCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.featureIcon {
+  margin-bottom: 1rem;
+  color: var(--ifm-color-primary);
+}
+
+.featureTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.featureDescription {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .installationStep {
+    flex-direction: column;
+  }
+  
+  .stepNumber {
+    margin-bottom: 0.5rem;
+  }
+  
+  .buttons {
+    flex-direction: column;
+    width: 100%;
+  }
 }
