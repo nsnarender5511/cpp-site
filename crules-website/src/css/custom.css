@@ -11,26 +11,35 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #6b46c1;
-  --ifm-color-primary-dark: #5f3eb0;
-  --ifm-color-primary-darker: #5a3ba6;
-  --ifm-color-primary-darkest: #4a3089;
-  --ifm-color-primary-light: #784dcb;
-  --ifm-color-primary-lighter: #7f55ce;
-  --ifm-color-primary-lightest: #9775d7;
+  --ifm-color-primary: #1e2235;
+  --ifm-color-primary-dark: #1b1f30;
+  --ifm-color-primary-darker: #191c2c;
+  --ifm-color-primary-darkest: #141724;
+  --ifm-color-primary-light: #21253a;
+  --ifm-color-primary-lighter: #23283e;
+  --ifm-color-primary-lightest: #282d46;
   
-  --ifm-color-secondary: #3182ce;
-  --ifm-color-secondary-dark: #2b74ba;
-  --ifm-color-secondary-darker: #296eaf;
-  --ifm-color-secondary-darkest: #215a90;
-  --ifm-color-secondary-light: #4490d6;
-  --ifm-color-secondary-lighter: #4f97d9;
-  --ifm-color-secondary-lightest: #71ace0;
+  --ifm-color-secondary: #4f97d9;
+  --ifm-color-secondary-dark: #3789d4;
+  --ifm-color-secondary-darker: #2b81ce;
+  --ifm-color-secondary-darkest: #246aaa;
+  --ifm-color-secondary-light: #67a5de;
+  --ifm-color-secondary-lighter: #75ade1;
+  --ifm-color-secondary-lightest: #9ac2e9;
+  
+  /* Accent colors */
+  --color-accent-coral: #ff7261;
+  --color-accent-coral-light: #ff8a7c;
+  --color-accent-coral-dark: #e56557;
+  
+  --color-accent-yellow: #ffd36b;
+  --color-accent-yellow-light: #ffe093;
+  --color-accent-yellow-dark: #e6be60;
   
   --ifm-code-font-size: 95%;
   --ifm-font-family-base: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --ifm-font-family-monospace: 'Roboto Mono', SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-  --ifm-heading-font-weight: 600;
+  --ifm-heading-font-weight: 700;
   
   --ifm-navbar-background-color: var(--ifm-color-primary);
   --ifm-navbar-link-color: rgba(255, 255, 255, 0.9);
@@ -51,33 +60,56 @@
   --space-xl: 4rem;
   
   --card-shadow: rgba(0, 0, 0, 0.1);
+  --card-shadow-hover: rgba(0, 0, 0, 0.2);
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, var(--ifm-color-secondary) 0%, var(--color-accent-coral) 100%);
+  --gradient-secondary: linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-lightest) 100%);
+  --gradient-light: linear-gradient(180deg, rgba(79, 151, 217, 0.1) 0%, rgba(255, 114, 97, 0.05) 100%);
+  
+  /* Text colors */
+  --text-primary: #1e2235;
+  --text-secondary: #4a5568;
+  --text-tertiary: #718096;
+  --text-light: #f7fafc;
+  
+  /* Animation durations */
+  --animation-fast: 0.2s;
+  --animation-normal: 0.3s;
+  --animation-slow: 0.5s;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 html[data-theme='dark'] {
-  --ifm-color-primary: #9775d7;
-  --ifm-color-primary-dark: #8460d0;
-  --ifm-color-primary-darker: #7a54cc;
-  --ifm-color-primary-darkest: #6038b9;
-  --ifm-color-primary-light: #aa8ade;
-  --ifm-color-primary-lighter: #b496e2;
-  --ifm-color-primary-lightest: #d1bfec;
+  --ifm-color-primary: #4f97d9;
+  --ifm-color-primary-dark: #3789d4;
+  --ifm-color-primary-darker: #2b81ce;
+  --ifm-color-primary-darkest: #246aaa;
+  --ifm-color-primary-light: #67a5de;
+  --ifm-color-primary-lighter: #75ade1;
+  --ifm-color-primary-lightest: #9ac2e9;
   
-  --ifm-color-secondary: #71ace0;
-  --ifm-color-secondary-dark: #579dd9;
-  --ifm-color-secondary-darker: #4b95d6;
-  --ifm-color-secondary-darkest: #297bc5;
-  --ifm-color-secondary-light: #8bbbe7;
-  --ifm-color-secondary-lighter: #97c3ea;
-  --ifm-color-secondary-lightest: #bdd8f1;
+  --ifm-color-secondary: #ff7261;
+  --ifm-color-secondary-dark: #ff5744;
+  --ifm-color-secondary-darker: #ff4935;
+  --ifm-color-secondary-darkest: #f82009;
+  --ifm-color-secondary-light: #ff8d7e;
+  --ifm-color-secondary-lighter: #ff9b8d;
+  --ifm-color-secondary-lightest: #ffc8bf;
   
   --ifm-background-color: #131524;
   --ifm-background-surface-color: #1e2235;
   
-  --ifm-navbar-background-color: var(--ifm-color-primary-darkest);
+  --ifm-navbar-background-color: #1e2235;
   --ifm-footer-background-color: #131524;
   
   --card-shadow: rgba(0, 0, 0, 0.3);
+  --card-shadow-hover: rgba(0, 0, 0, 0.4);
+  
+  /* Text colors for dark mode */
+  --text-primary: #f7fafc;
+  --text-secondary: #e2e8f0;
+  --text-tertiary: #cbd5e0;
 }
 
 /* Custom component styling */
